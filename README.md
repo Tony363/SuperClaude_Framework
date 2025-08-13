@@ -29,7 +29,7 @@ This is what we've been building to make development workflows smoother. Still r
 - Installation suite (rewritten from the ground up)
 - Core framework with 9 documentation files 
 - 16 slash commands for various development tasks
-- MCP server integration (Context7, Sequential, Magic, Playwright)
+- MCP server integration (Deepwiki, Sequential, Magic, Browserbase)
 - Unified CLI installer for easy setup
 
 ⚠️ **Known Issues:**
@@ -62,10 +62,10 @@ AI specialists that try to jump in when they seem relevant:
 
 ### MCP Integration 🔧
 External tools that connect when useful:
-- **Context7** - Grabs official library docs and patterns 
+- **Deepwiki** - Grabs official library docs and patterns 
 - **Sequential** - Helps with complex multi-step thinking  
 - **Magic** - Generates modern UI components 
-- **Playwright** - Browser automation and testing stuff
+- **Browserbase** - Cloud browser automation and testing
 
 *(These work pretty well when they connect properly! 🤞)*
 

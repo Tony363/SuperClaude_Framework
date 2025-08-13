@@ -297,10 +297,10 @@ Meta-cognitive analysis mode that enables Claude Code to step outside normal ope
 - **Evidence Tracking**: Compression effectiveness metrics and continuous improvement
 
 ### MCP Optimization & Caching
-- **Context7**: Cache documentation lookups (2-5K tokens/query saved)
+- **Deepwiki**: Cache documentation lookups (2-5K tokens/query saved)
 - **Sequential**: Reuse reasoning analysis results with compression awareness
 - **Magic**: Store UI component patterns with optimized delivery
-- **Playwright**: Batch operations with intelligent result compression
+- **Browserbase**: Batch operations with intelligent result compression
 - **Cross-Server**: Coordinated caching strategies and compression optimization
 
 ### Performance Metrics

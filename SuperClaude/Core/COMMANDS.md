@@ -25,7 +25,7 @@ performance-profile: "optimization|standard|complex"
 ### Integration Layers
 - **Claude Code**: Native slash command compatibility
 - **Persona System**: Auto-activation based on command context
-- **MCP Servers**: Context7, Sequential, Magic, Playwright integration
+- **MCP Servers**: Deepwiki, Sequential, Magic, Browserbase integration
 - **Wave System**: Multi-stage orchestration for complex operations
 
 ## Wave System Integration
@@ -49,7 +49,7 @@ performance-profile: "optimization"
 ---
 ```
 - **Auto-Persona**: Frontend, Backend, Architect, Scribe
-- **MCP Integration**: Magic (UI builds), Context7 (patterns), Sequential (logic)
+- **MCP Integration**: Magic (UI builds), Deepwiki (patterns), Sequential (logic)
 - **Tool Orchestration**: [Read, Grep, Glob, Bash, TodoWrite, Edit, MultiEdit]
 - **Arguments**: `[target]`, `@<path>`, `!<command>`, `--<flags>`
 
@@ -64,7 +64,7 @@ performance-profile: "standard"
 ---
 ```
 - **Auto-Persona**: Frontend, Backend, Architect, Security (context-dependent)
-- **MCP Integration**: Magic (UI components), Context7 (patterns), Sequential (complex logic)
+- **MCP Integration**: Magic (UI components), Deepwiki (patterns), Sequential (complex logic)
 - **Tool Orchestration**: [Read, Write, Edit, MultiEdit, Bash, Glob, TodoWrite, Task]
 - **Arguments**: `[feature-description]`, `--type component|api|service|feature`, `--framework <name>`, `--<flags>`
 
@@ -82,13 +82,13 @@ performance-profile: "complex"
 ---
 ```
 - **Auto-Persona**: Analyzer, Architect, Security
-- **MCP Integration**: Sequential (primary), Context7 (patterns), Magic (UI analysis)
+- **MCP Integration**: Sequential (primary), Deepwiki (patterns), Magic (UI analysis)
 - **Tool Orchestration**: [Read, Grep, Glob, Bash, TodoWrite]
 - **Arguments**: `[target]`, `@<path>`, `!<command>`, `--<flags>`
 
-**`/troubleshoot [symptoms] [flags]`** - Problem investigation | Auto-Persona: Analyzer, QA | MCP: Sequential, Playwright
+**`/troubleshoot [symptoms] [flags]`** - Problem investigation | Auto-Persona: Analyzer, QA | MCP: Sequential, Browserbase
 
-**`/explain [topic] [flags]`** - Educational explanations | Auto-Persona: Mentor, Scribe | MCP: Context7, Sequential
+**`/explain [topic] [flags]`** - Educational explanations | Auto-Persona: Mentor, Scribe | MCP: Deepwiki, Sequential
 
 
 ### Quality Commands
@@ -104,7 +104,7 @@ performance-profile: "optimization"
 ---
 ```
 - **Auto-Persona**: Refactorer, Performance, Architect, QA
-- **MCP Integration**: Sequential (logic), Context7 (patterns), Magic (UI improvements)
+- **MCP Integration**: Sequential (logic), Deepwiki (patterns), Magic (UI improvements)
 - **Tool Orchestration**: [Read, Grep, Glob, Edit, MultiEdit, Bash]
 - **Arguments**: `[target]`, `@<path>`, `!<command>`, `--<flags>`
 
@@ -113,17 +113,17 @@ performance-profile: "optimization"
 
 ### Additional Commands
 
-**`/document [target] [flags]`** - Documentation generation | Auto-Persona: Scribe, Mentor | MCP: Context7, Sequential
+**`/document [target] [flags]`** - Documentation generation | Auto-Persona: Scribe, Mentor | MCP: Deepwiki, Sequential
 
-**`/estimate [target] [flags]`** - Evidence-based estimation | Auto-Persona: Analyzer, Architect | MCP: Sequential, Context7
+**`/estimate [target] [flags]`** - Evidence-based estimation | Auto-Persona: Analyzer, Architect | MCP: Sequential, Deepwiki
 
 **`/task [operation] [flags]`** - Long-term project management | Auto-Persona: Architect, Analyzer | MCP: Sequential
 
-**`/test [type] [flags]`** - Testing workflows | Auto-Persona: QA | MCP: Playwright, Sequential
+**`/test [type] [flags]`** - Testing workflows | Auto-Persona: QA | MCP: Browserbase, Sequential
 
 **`/git [operation] [flags]`** - Git workflow assistant | Auto-Persona: DevOps, Scribe, QA | MCP: Sequential
 
-**`/design [domain] [flags]`** - Design orchestration | Auto-Persona: Architect, Frontend | MCP: Magic, Sequential, Context7
+**`/design [domain] [flags]`** - Design orchestration | Auto-Persona: Architect, Frontend | MCP: Magic, Sequential, Deepwiki
 
 ### Meta & Orchestration Commands
 

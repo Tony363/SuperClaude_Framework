@@ -5,7 +5,7 @@ wave-enabled: true
 complexity-threshold: 0.7
 performance-profile: complex
 personas: [architect, analyzer, project-manager]
-mcp-servers: [sequential, context7]
+mcp-servers: [sequential, deepwiki]
 ---
 
 # /sc:task - Enhanced Task Management
@@ -95,10 +95,10 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 - **Error Recovery**: Graceful error handling and recovery mechanisms
 
 ### MCP Server Coordination
-- **Context7**: Framework patterns and library documentation
+- **Deepwiki**: Framework patterns and library documentation
 - **Sequential**: Complex analysis and multi-step reasoning
 - **Magic**: UI component generation and design systems
-- **Playwright**: End-to-end testing and performance validation
+- **Browserbase**: End-to-end testing and performance validation
 
 ### Persona Integration
 - **Architect**: System design and architectural decisions

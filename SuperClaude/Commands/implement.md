@@ -25,7 +25,7 @@ Implement features, components, and code functionality with intelligent expert a
 ## Execution
 1. Analyze implementation requirements and detect technology context
 2. Auto-activate relevant personas (frontend, backend, security, etc.)
-3. Coordinate with MCP servers (Magic for UI, Context7 for patterns, Sequential for complex logic)
+3. Coordinate with MCP servers (Magic for UI, Deepwiki for patterns, Sequential for complex logic)
 4. Generate implementation code with best practices
 5. Apply security and quality validation
 6. Provide testing recommendations and next steps

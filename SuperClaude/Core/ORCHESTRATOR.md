@@ -117,12 +117,12 @@ analysis:
 creation:
   verbs: [create, build, implement, generate, design]
   outputs: [new files, features, components]
-  typical_tools: [Write, Magic, Context7]
+  typical_tools: [Write, Magic, Deepwiki]
 
 implementation:
   verbs: [implement, develop, code, construct, realize]
   outputs: [working features, functional code, integrated components]
-  typical_tools: [Write, Edit, MultiEdit, Magic, Context7, Sequential]
+  typical_tools: [Write, Edit, MultiEdit, Magic, Deepwiki, Sequential]
 
 modification:
   verbs: [update, refactor, improve, optimize, fix]
@@ -132,7 +132,7 @@ modification:
 debugging:
   verbs: [debug, fix, troubleshoot, resolve, investigate]
   outputs: [fixes, root causes, solutions]
-  typical_tools: [Grep, Sequential, Playwright]
+  typical_tools: [Grep, Sequential, Browserbase]
 
 iterative:
   verbs: [improve, refine, enhance, correct, polish, fix, iterate, loop]
@@ -143,7 +143,7 @@ wave_operations:
   verbs: [comprehensively, systematically, thoroughly, progressively, iteratively]
   modifiers: [improve, optimize, refactor, modernize, enhance, audit, transform]
   outputs: [comprehensive improvements, systematic enhancements, progressive transformations]
-  typical_tools: [Sequential, Task, Read, Edit, MultiEdit, Context7]
+  typical_tools: [Sequential, Task, Read, Edit, MultiEdit, Deepwiki]
   wave_patterns: [review-plan-implement-validate, assess-design-execute-verify, analyze-strategize-transform-optimize]
 ```
 
@@ -194,14 +194,14 @@ wave-strategies:
 |---------|------------|---------|----------------|------------|
 | "analyze architecture" | complex | infrastructure | architect persona, --ultrathink, Sequential | 95% |
 | "create component" | simple | frontend | frontend persona, Magic, --uc | 90% |
-| "implement feature" | moderate | any | domain-specific persona, Context7, Sequential | 88% |
-| "implement API" | moderate | backend | backend persona, --seq, Context7 | 92% |
-| "implement UI component" | simple | frontend | frontend persona, Magic, --c7 | 94% |
+| "implement feature" | moderate | any | domain-specific persona, Deepwiki, Sequential | 88% |
+| "implement API" | moderate | backend | backend persona, --seq, Deepwiki | 92% |
+| "implement UI component" | simple | frontend | frontend persona, Magic, --dw | 94% |
 | "implement authentication" | complex | security | security persona, backend persona, --validate | 90% |
 | "fix bug" | moderate | any | analyzer persona, --think, Sequential | 85% |
-| "optimize performance" | complex | backend | performance persona, --think-hard, Playwright | 90% |
+| "optimize performance" | complex | backend | performance persona, --think-hard, Browserbase | 90% |
 | "security audit" | complex | security | security persona, --ultrathink, Sequential | 95% |
-| "write documentation" | moderate | documentation | scribe persona, --persona-scribe=en, Context7 | 95% |
+| "write documentation" | moderate | documentation | scribe persona, --persona-scribe=en, Deepwiki | 95% |
 | "improve iteratively" | moderate | iterative | intelligent persona, --seq, loop creation | 90% |
 | "analyze large codebase" | complex | any | --delegate --parallel-dirs, domain specialists | 95% |
 | "comprehensive audit" | complex | multi | --multi-agent --parallel-focus, specialized agents | 95% |
@@ -217,9 +217,9 @@ wave-strategies:
 **Base Tool Selection**:
 - **Search**: Grep (specific patterns) or Agent (open-ended)
 - **Understanding**: Sequential (complexity >0.7) or Read (simple)  
-- **Documentation**: Context7
+- **Documentation**: Deepwiki
 - **UI**: Magic
-- **Testing**: Playwright
+- **Testing**: Browserbase
 
 **Delegation & Wave Evaluation**:
 - **Delegation Score >0.6**: Add Task tool, auto-enable delegation flags based on scope
@@ -311,16 +311,16 @@ token_optimization:
 
 **Sub-Agent Specialization Matrix**:
 - **Quality**: qa persona, complexity/maintainability focus, Read/Grep/Sequential tools
-- **Security**: security persona, vulnerabilities/compliance focus, Grep/Sequential/Context7 tools
-- **Performance**: performance persona, bottlenecks/optimization focus, Read/Sequential/Playwright tools
-- **Architecture**: architect persona, patterns/structure focus, Read/Sequential/Context7 tools
-- **API**: backend persona, endpoints/contracts focus, Grep/Context7/Sequential tools
+- **Security**: security persona, vulnerabilities/compliance focus, Grep/Sequential/Deepwiki tools
+- **Performance**: performance persona, bottlenecks/optimization focus, Read/Sequential/Browserbase tools
+- **Architecture**: architect persona, patterns/structure focus, Read/Sequential/Deepwiki tools
+- **API**: backend persona, endpoints/contracts focus, Grep/Deepwiki/Sequential tools
 
 **Wave-Specific Specialization Matrix**:
 - **Review**: analyzer persona, current_state/quality_assessment focus, Read/Grep/Sequential tools
-- **Planning**: architect persona, strategy/design focus, Sequential/Context7/Write tools
+- **Planning**: architect persona, strategy/design focus, Sequential/Deepwiki/Write tools
 - **Implementation**: intelligent persona, code_modification/feature_creation focus, Edit/MultiEdit/Task tools
-- **Validation**: qa persona, testing/validation focus, Sequential/Playwright/Context7 tools
+- **Validation**: qa persona, testing/validation focus, Sequential/Browserbase/Deepwiki tools
 - **Optimization**: performance persona, performance_tuning/resource_optimization focus, Read/Sequential/Grep tools
 
 #### Persona Auto-Activation System
@@ -358,10 +358,10 @@ token_optimization:
 **Context-Based Auto-Activation**:
 - Performance issues → --persona-performance + --focus performance + --think
 - Security concerns → --persona-security + --focus security + --validate
-- UI/UX tasks → --persona-frontend + --magic + --c7
+- UI/UX tasks → --persona-frontend + --magic + --dw
 - Complex debugging → --think + --seq + --persona-analyzer
 - Large codebase → --uc when context >75% + --delegate auto
-- Testing operations → --persona-qa + --play + --validate
+- Testing operations → --persona-qa + --bb + --validate
 - DevOps operations → --persona-devops + --safe-mode + --validate
 - Refactoring → --persona-refactorer + --wave-strategy systematic + --validate
 - Iterative improvement → --loop for polish, refine, enhance keywords
@@ -405,14 +405,14 @@ Based on pattern match strength (40%), historical success rate (30%), context co
 ### 8-Step Validation Cycle with AI Integration
 ```yaml
 quality_gates:
-  step_1_syntax: "language parsers, Context7 validation, intelligent suggestions"
+  step_1_syntax: "language parsers, Deepwiki validation, intelligent suggestions"
   step_2_type: "Sequential analysis, type compatibility, context-aware suggestions"
-  step_3_lint: "Context7 rules, quality analysis, refactoring suggestions"
+  step_3_lint: "Deepwiki rules, quality analysis, refactoring suggestions"
   step_4_security: "Sequential analysis, vulnerability assessment, OWASP compliance"
-  step_5_test: "Playwright E2E, coverage analysis (≥80% unit, ≥70% integration)"
+  step_5_test: "Browserbase E2E, coverage analysis (≥80% unit, ≥70% integration)"
   step_6_performance: "Sequential analysis, benchmarking, optimization suggestions"
-  step_7_documentation: "Context7 patterns, completeness validation, accuracy verification"
-  step_8_integration: "Playwright testing, deployment validation, compatibility verification"
+  step_7_documentation: "Deepwiki patterns, completeness validation, accuracy verification"
+  step_8_integration: "Browserbase testing, deployment validation, compatibility verification"
 
 validation_automation:
   continuous_integration: "CI/CD pipeline integration, progressive validation, early failure detection"
@@ -465,10 +465,10 @@ Smart MCP server selection and orchestration.
 **Reference**: See MCP.md for detailed server capabilities, workflows, and integration patterns.
 
 **Quick Selection Guide**:
-- **Context7**: Library docs, framework patterns
+- **Deepwiki**: Library docs, framework patterns
 - **Sequential**: Complex analysis, multi-step reasoning
 - **Magic**: UI components, design systems
-- **Playwright**: E2E testing, performance metrics
+- **Browserbase**: E2E testing, performance metrics
 
 ### Intelligent Server Coordination
 **Reference**: See MCP.md for complete server orchestration patterns and fallback strategies.

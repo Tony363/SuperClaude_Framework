@@ -132,11 +132,11 @@ Control output style, safety, and performance.
 
 Enable specialized capabilities through MCP servers.
 
-#### `--c7` / `--context7`
-**What it does**: Enables Context7 for official library documentation  
+#### `--dw` / `--deepwiki`
+**What it does**: Enables Deepwiki for official library documentation  
 **When to use**: Working with frameworks, need official docs  
 **Auto-activates**: External library imports, framework questions  
-**Example**: `/build react-app/ --c7` - Get React best practices
+**Example**: `/build react-app/ --dw` - Get React best practices
 
 #### `--seq` / `--sequential`
 **What it does**: Enables Sequential for complex multi-step analysis  
@@ -150,11 +150,11 @@ Enable specialized capabilities through MCP servers.
 **Auto-activates**: UI component requests, frontend persona  
 **Example**: `/build dashboard --magic` - Get modern UI components
 
-#### `--play` / `--playwright`
-**What it does**: Enables Playwright for browser automation and testing  
+#### `--bb` / `--browserbase`
+**What it does**: Enables Browserbase for browser automation and testing  
 **When to use**: E2E testing, performance monitoring  
 **Auto-activates**: Test workflows, QA persona  
-**Example**: `/test e2e --play`
+**Example**: `/test e2e --bb`
 
 #### `--all-mcp`
 **What it does**: Enables all MCP servers simultaneously  
@@ -167,7 +167,7 @@ Enable specialized capabilities through MCP servers.
 **When to use**: Faster execution, don't need specialized features  
 **Example**: `/analyze simple-script.js --no-mcp`
 
-**💡 Tip**: MCP servers add capabilities but use more tokens. `--c7` for docs, `--seq` for thinking, `--magic` for UI.
+**💡 Tip**: MCP servers add capabilities but use more tokens. `--dw` for docs, `--seq` for thinking, `--magic` for UI.
 
 ---
 
@@ -252,13 +252,13 @@ Direct SuperClaude's attention to specific areas.
 
 ### Learning & Documentation
 ```bash
-/sc:explain React hooks --c7 --verbose    # Detailed explanation with docs
+/sc:explain React hooks --dw --verbose    # Detailed explanation with docs
 /sc:document api/ --persona-scribe        # Professional documentation
 ```
 
 ### Performance-Focused
 ```bash
-/sc:analyze --focus performance --play     # Performance analysis with testing
+/sc:analyze --focus performance --bb     # Performance analysis with testing
 /sc:build --uc --no-mcp                   # Fast build without extra features
 ```
 
@@ -279,7 +279,7 @@ Direct SuperClaude's attention to specific areas.
 
 **After** (with flags):
 ```bash
-/sc:analyze auth.js --focus security --think --c7
+/sc:analyze auth.js --focus security --think --dw
 # → Security-focused analysis with deep thinking and official docs
 # → Much more thorough, finds security patterns, checks against best practices
 ```
@@ -330,7 +330,7 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 ### Domain-Based
 ```bash
 /sc:build react-app/
-# Auto-adds: --c7 --persona-frontend
+# Auto-adds: --dw --persona-frontend
 # Why: Frontend framework detected
 
 /sc:analyze --focus security
@@ -357,13 +357,13 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 
 **Comprehensive Code Review**:
 ```bash
-/sc:review codebase/ --persona-qa --think-hard --focus quality --validate --c7
+/sc:review codebase/ --persona-qa --think-hard --focus quality --validate --dw
 # → QA specialist + deep thinking + quality focus + validation + docs
 ```
 
 **Legacy System Modernization**:
 ```bash
-/sc:improve legacy/ --wave-mode force --persona-architect --safe-mode --loop --c7
+/sc:improve legacy/ --wave-mode force --persona-architect --safe-mode --loop --dw
 # → Wave orchestration + architect perspective + safety + iteration + docs
 ```
 
@@ -393,15 +393,15 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 ```bash
 /sc:troubleshoot "specific error" --seq --think --validate
 /sc:analyze affected-files/ --focus quality --persona-analyzer  
-/sc:test --play --coverage
+/sc:test --bb --coverage
 ```
 
 **Feature Development Workflow**:
 ```bash
-/sc:design new-feature --persona-architect --c7
+/sc:design new-feature --persona-architect --dw
 /sc:build --magic --persona-frontend --validate
-/sc:test --play --coverage
-/sc:document --persona-scribe --c7
+/sc:test --bb --coverage
+/sc:document --persona-scribe --dw
 ```
 
 ## Quick Reference 📋
@@ -412,7 +412,7 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 | `--think` | Deeper analysis | Complex problems |
 | `--uc` | Compress output | Large operations |
 | `--safe-mode` | Conservative execution | Important code |
-| `--c7` | Official docs | Framework work |
+| `--dw` | Official docs | Framework work |
 | `--seq` | Systematic analysis | Debugging |
 | `--focus security` | Security focus | Security concerns |
 | `--delegate auto` | Parallel processing | Large codebases |
@@ -424,19 +424,19 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 --safe-mode --validate --preview
 
 # Deep analysis  
---think --seq --c7
+--think --seq --dw
 
 # Large project
 --delegate auto --uc --focus
 
 # Learning
---verbose --c7 --persona-mentor
+--verbose --dw --persona-mentor
 
 # Security work
 --persona-security --focus security --validate
 
 # Performance work
---persona-performance --focus performance --play
+--persona-performance --focus performance --bb
 ```
 
 ### Auto-Activation Triggers
@@ -444,7 +444,7 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 - **--uc**: Context >75%, large operations  
 - **--safe-mode**: Resource usage >85%, production
 - **--delegate**: >7 directories or >50 files
-- **--c7**: Framework imports, documentation requests
+- **--dw**: Framework imports, documentation requests
 - **--seq**: Debugging keywords, --think flags
 - **Personas**: Domain-specific keywords and patterns
 
@@ -455,7 +455,7 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 **"Flags don't seem to work"**
 - Check spelling (common typos: `--ultracompresed`, `--persona-fronted`)
 - Some flags need values: `--scope project`, `--focus security`
-- Flag conflicts: `--no-mcp` overrides `--c7`, `--seq`, etc.
+- Flag conflicts: `--no-mcp` overrides `--dw`, `--seq`, etc.
 
 **"Operation too slow"**
 - Try `--uc` for compression
@@ -469,7 +469,7 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 
 **"Not thorough enough"**
 - Add `--think` or `--think-hard`
-- Enable relevant MCP servers: `--seq`, `--c7`
+- Enable relevant MCP servers: `--seq`, `--dw`
 - Use appropriate persona: `--persona-analyzer`
 
 **"Changes too risky"**
@@ -480,7 +480,7 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 ### Flag Conflicts
 
 **These override others**:
-- `--no-mcp` overrides all MCP flags (`--c7`, `--seq`, etc.)
+- `--no-mcp` overrides all MCP flags (`--dw`, `--seq`, etc.)
 - `--safe-mode` overrides optimization flags
 - Last persona flag wins: `--persona-frontend --persona-backend` → backend
 
@@ -508,7 +508,7 @@ SuperClaude usually adds flags based on context. Here's when it tries:
 - **For speed**: `--uc --no-mcp --scope file`
 - **For thoroughness**: `--think-hard --all-mcp --delegate auto`
 - **For safety**: `--safe-mode --validate --preview`
-- **For learning**: `--verbose --c7 --persona-mentor`
+- **For learning**: `--verbose --dw --persona-mentor`
 
 ---
 

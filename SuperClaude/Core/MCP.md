@@ -13,32 +13,31 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 
 **Selection Process**: Task Analysis → Server Capability Match → Performance Check → Load Assessment → Final Selection
 
-## Context7 Integration (Documentation & Research)
+## Deepwiki Integration (Documentation & Research)
 
 **Purpose**: Official library documentation, code examples, best practices, localization standards
 
 **Activation Patterns**: 
 - Automatic: External library imports detected, framework-specific questions, scribe persona active
-- Manual: `--c7`, `--context7` flags
+- Manual: `--dw`, `--deepwiki` flags
 - Smart: Commands detect need for official documentation patterns
 
 **Workflow Process**:
 1. Library Detection: Scan imports, dependencies, package.json for library references
-2. ID Resolution: Use `resolve-library-id` to find Context7-compatible library ID
-3. Documentation Retrieval: Call `get-library-docs` with specific topic focus
-4. Pattern Extraction: Extract relevant code patterns and implementation examples
-5. Implementation: Apply patterns with proper attribution and version compatibility
-6. Validation: Verify implementation against official documentation
-7. Caching: Store successful patterns for session reuse
+2. Documentation Fetch: Use `deepwiki_fetch` with library name or URL
+3. Pattern Extraction: Extract relevant code patterns and implementation examples from aggregated docs
+4. Implementation: Apply patterns with proper attribution and version compatibility
+5. Validation: Verify implementation against official documentation
+6. Caching: Store successful patterns for session reuse
 
 **Integration Commands**: `/build`, `/analyze`, `/improve`, `/design`, `/document`, `/explain`, `/git`
 
 **Error Recovery**:
 - Library not found → WebSearch for alternatives → Manual implementation
 - Documentation timeout → Use cached knowledge → Note limitations
-- Invalid library ID → Retry with broader search terms → Fallback to WebSearch
+- Fetch failure → Retry with different search terms → Fallback to WebSearch
 - Version mismatch → Find compatible version → Suggest upgrade path
-- Server unavailable → Activate backup Context7 instances → Graceful degradation
+- Server unavailable → Activate backup Deepwiki instances → Graceful degradation
 
 ## Sequential Integration (Complex Analysis & Thinking)
 
@@ -51,7 +50,7 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 
 **Workflow Process**:
 1. Problem Decomposition: Break complex problems into analyzable components
-2. Server Coordination: Coordinate with Context7 for documentation, Magic for UI insights, Playwright for testing
+2. Server Coordination: Coordinate with Deepwiki for documentation, Magic for UI insights, Browserbase for testing
 3. Systematic Analysis: Apply structured thinking to each component
 4. Relationship Mapping: Identify dependencies, interactions, and feedback loops
 5. Hypothesis Generation: Create testable hypotheses for each component
@@ -87,7 +86,7 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 1. Requirement Parsing: Extract component specifications and design system requirements
 2. Pattern Search: Find similar components and design patterns from 21st.dev database
 3. Framework Detection: Identify target framework (React, Vue, Angular) and version
-4. Server Coordination: Sync with Context7 for framework patterns, Sequential for complex logic
+4. Server Coordination: Sync with Deepwiki for framework patterns, Sequential for complex logic
 5. Code Generation: Create component with modern best practices and framework conventions
 6. Design System Integration: Apply existing themes, styles, tokens, and design patterns
 7. Accessibility Compliance: Ensure WCAG compliance, semantic markup, and keyboard navigation
@@ -110,80 +109,81 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 - Angular: Component architecture, TypeScript, reactive forms, services
 - Vanilla: Web Components, modern JavaScript, CSS custom properties
 
-## Playwright Integration (Browser Automation & Testing)
+## Browserbase Integration (Browser Automation & Testing)
 
 **Purpose**: Cross-browser E2E testing, performance monitoring, automation, visual testing
 
 **Activation Patterns**:
 - Automatic: Testing workflows, performance monitoring requests, E2E test generation
-- Manual: `--play`, `--playwright` flags
+- Manual: `--bb`, `--browserbase` flags
 - Smart: QA persona active, browser interaction needed
 
 **Workflow Process**:
-1. Browser Connection: Connect to Chrome, Firefox, Safari, or Edge instances
-2. Environment Setup: Configure viewport, user agent, network conditions, device emulation
-3. Navigation: Navigate to target URLs with proper waiting and error handling
+1. Session Creation: Create or reuse Browserbase session with Stagehand initialization
+2. Environment Setup: Configure viewport, proxies, stealth mode, cookies as needed
+3. Navigation: Use `browserbase_stagehand_navigate` to target URLs with error handling
 4. Server Coordination: Sync with Sequential for test planning, Magic for UI validation
-5. Interaction: Perform user actions (clicks, form fills, navigation) across browsers
-6. Data Collection: Capture screenshots, videos, performance metrics, console logs
-7. Validation: Verify expected behaviors, visual states, and performance thresholds
+5. Interaction: Use `browserbase_stagehand_act` for user actions (clicks, form fills, navigation)
+6. Data Collection: Use `browserbase_stagehand_extract` for content and `browserbase_screenshot` for visuals
+7. Observation: Use `browserbase_stagehand_observe` to identify interactive elements
 8. Multi-Server Analysis: Coordinate with other servers for comprehensive test analysis
 9. Reporting: Generate test reports with evidence, metrics, and actionable insights
-10. Cleanup: Properly close browser connections and clean up resources
+10. Cleanup: Properly close sessions with `browserbase_session_close`
 
 **Capabilities**:
-- Multi-Browser Support: Chrome, Firefox, Safari, Edge with consistent API
-- Visual Testing: Screenshot capture, visual regression detection, responsive testing
-- Performance Metrics: Load times, rendering performance, resource usage, Core Web Vitals
-- User Simulation: Real user interaction patterns, accessibility testing, form workflows
-- Data Extraction: DOM content, API responses, console logs, network monitoring
-- Mobile Testing: Device emulation, touch gestures, mobile-specific validation
-- Parallel Execution: Run tests across multiple browsers simultaneously
+- Cloud Browser Sessions: Scalable browser instances with session management
+- Stagehand Integration: AI-powered element detection and interaction
+- Visual Testing: Screenshot capture with named screenshots for tracking
+- Performance Metrics: Load times, rendering performance, resource usage monitoring
+- User Simulation: Real user interaction patterns through natural language commands
+- Data Extraction: Structured content extraction with AI parsing
+- Multi-Session Support: Parallel browser sessions for concurrent testing
+- Session Persistence: Resume existing sessions for long-running workflows
 
 **Integration Patterns**:
-- Test Generation: Create E2E tests based on user workflows and critical paths
-- Performance Monitoring: Continuous performance measurement with threshold alerting
-- Visual Validation: Screenshot-based testing and regression detection
-- Cross-Browser Testing: Validate functionality across all major browsers
-- User Experience Testing: Accessibility validation, usability testing, conversion optimization
+- Test Generation: Create E2E tests using natural language action descriptions
+- Performance Monitoring: Continuous performance measurement with cloud infrastructure
+- Visual Validation: Screenshot-based testing with AI-powered element detection
+- Cross-Browser Testing: Validate functionality using cloud browser instances
+- User Experience Testing: Accessibility validation through observe and extract tools
 
 ## MCP Server Use Cases by Command Category
 
 **Development Commands**:
-- Context7: Framework patterns, library documentation
+- Deepwiki: Framework patterns, library documentation
 - Magic: UI component generation
 - Sequential: Complex setup workflows
 
 **Analysis Commands**:
-- Context7: Best practices, patterns
+- Deepwiki: Best practices, patterns
 - Sequential: Deep analysis, systematic review
-- Playwright: Issue reproduction, visual testing
+- Browserbase: Issue reproduction, visual testing
 
 **Quality Commands**:
-- Context7: Security patterns, improvement patterns
+- Deepwiki: Security patterns, improvement patterns
 - Sequential: Code analysis, cleanup strategies
 
 **Testing Commands**:
 - Sequential: Test strategy development
-- Playwright: E2E test execution, visual regression
+- Browserbase: E2E test execution, visual regression
 
 **Documentation Commands**:
-- Context7: Documentation patterns, style guides, localization standards
+- Deepwiki: Documentation patterns, style guides, localization standards
 - Sequential: Content analysis, structured writing, multilingual documentation workflows
 - Scribe Persona: Professional writing with cultural adaptation and language-specific conventions
 
 **Planning Commands**:
-- Context7: Benchmarks and patterns
+- Deepwiki: Benchmarks and patterns
 - Sequential: Complex planning and estimation
 
 **Deployment Commands**:
 - Sequential: Deployment planning
-- Playwright: Deployment validation
+- Browserbase: Deployment validation
 
 **Meta Commands**:
 - Sequential: Search intelligence, task orchestration, iterative improvement analysis
 - All MCP: Comprehensive analysis and orchestration
-- Loop Command: Iterative workflows with Sequential (primary) and Context7 (patterns)
+- Loop Command: Iterative workflows with Sequential (primary) and Deepwiki (patterns)
 
 ## Server Orchestration Patterns
 
@@ -195,18 +195,18 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 - Failover Management: Automatic failover to backup servers during outages
 
 **Caching Strategies**:
-- Context7 Cache: Documentation lookups with version-aware caching
+- Deepwiki Cache: Documentation lookups with version-aware caching
 - Sequential Cache: Analysis results with pattern matching
 - Magic Cache: Component patterns with design system versioning
-- Playwright Cache: Test results and screenshots with environment-specific caching
+- Browserbase Cache: Test results and screenshots with session-based caching
 - Cross-Server Cache: Shared cache for multi-server operations
 - Loop Optimization: Cache iterative analysis results, reuse improvement patterns
 
 **Error Handling and Recovery**:
-- Context7 unavailable → WebSearch for documentation → Manual implementation
+- Deepwiki unavailable → WebSearch for documentation → Manual implementation
 - Sequential timeout → Use native Claude Code analysis → Note limitations
 - Magic failure → Generate basic component → Suggest manual enhancement
-- Playwright connection lost → Suggest manual testing → Provide test cases
+- Browserbase session lost → Suggest manual testing → Provide test cases
 
 **Recovery Strategies**:
 - Exponential Backoff: Automatic retry with exponential backoff and jitter
@@ -220,6 +220,6 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 - Progressive Enhancement: Progressively enhance with additional servers
 - Result Combination: Combine MCP results for comprehensive solutions
 - Graceful Fallback: Fallback gracefully when servers unavailable
-- Loop Integration: Sequential for iterative analysis, Context7 for improvement patterns
+- Loop Integration: Sequential for iterative analysis, Deepwiki for improvement patterns
 - Dependency Orchestration: Manage inter-server dependencies and data flow
 

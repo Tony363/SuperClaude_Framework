@@ -72,11 +72,11 @@ A practical guide to all 16 SuperClaude slash commands. We'll be honest about wh
 - Want expert guidance on implementation strategy
 - Planning complex features with multiple dependencies
 
-**The magic**: Auto-activates appropriate expert personas (architect, security, frontend, backend) and MCP servers (Context7 for patterns, Sequential for complex analysis) based on your feature requirements.
+**The magic**: Auto-activates appropriate expert personas (architect, security, frontend, backend) and MCP servers (Deepwiki for patterns, Sequential for complex analysis) based on your feature requirements.
 
 **Examples**:
 ```bash
-/sc:workflow docs/feature-100-prd.md --strategy systematic --c7 --sequential
+/sc:workflow docs/feature-100-prd.md --strategy systematic --dw --sequential
 /sc:workflow "user authentication system" --persona security --output detailed
 /sc:workflow payment-api --strategy mvp --risks --dependencies
 ```
@@ -127,7 +127,7 @@ A practical guide to all 16 SuperClaude slash commands. We'll be honest about wh
 
 **Auto-activation patterns**:
 - **Frontend**: UI components, React/Vue/Angular → frontend persona + Magic MCP
-- **Backend**: APIs, services, databases → backend persona + Context7
+- **Backend**: APIs, services, databases → backend persona + Deepwiki
 - **Security**: Auth, payments, sensitive data → security persona + validation
 - **Complex features**: Multi-step implementations → Sequential MCP + architect persona
 

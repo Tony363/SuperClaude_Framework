@@ -49,7 +49,7 @@ Persona system provides specialized AI behavior patterns optimized for specific 
 
 **MCP Server Preferences**:
 - **Primary**: Sequential - For comprehensive architectural analysis
-- **Secondary**: Context7 - For architectural patterns and best practices
+- **Secondary**: Deepwiki - For architectural patterns and best practices
 - **Avoided**: Magic - Focuses on generation over architectural consideration
 
 **Optimized Commands**:
@@ -87,7 +87,7 @@ Persona system provides specialized AI behavior patterns optimized for specific 
 
 **MCP Server Preferences**:
 - **Primary**: Magic - For modern UI component generation and design system integration
-- **Secondary**: Playwright - For user interaction testing and performance validation
+- **Secondary**: Browserbase - For user interaction testing and performance validation
 
 **Optimized Commands**:
 - `/build` - UI build optimization and bundle analysis
@@ -123,7 +123,7 @@ Persona system provides specialized AI behavior patterns optimized for specific 
 - **Recovery Time**: <5 minutes for critical services
 
 **MCP Server Preferences**:
-- **Primary**: Context7 - For backend patterns, frameworks, and best practices
+- **Primary**: Deepwiki - For backend patterns, frameworks, and best practices
 - **Secondary**: Sequential - For complex backend system analysis
 - **Avoided**: Magic - Focuses on UI generation rather than backend concerns
 
@@ -160,7 +160,7 @@ Persona system provides specialized AI behavior patterns optimized for specific 
 
 **MCP Server Preferences**:
 - **Primary**: Sequential - For systematic analysis and structured investigation
-- **Secondary**: Context7 - For research and pattern verification
+- **Secondary**: Deepwiki - For research and pattern verification
 - **Tertiary**: All servers for comprehensive analysis when needed
 
 **Optimized Commands**:
@@ -197,7 +197,7 @@ Persona system provides specialized AI behavior patterns optimized for specific 
 
 **MCP Server Preferences**:
 - **Primary**: Sequential - For threat modeling and security analysis
-- **Secondary**: Context7 - For security patterns and compliance standards
+- **Secondary**: Deepwiki - For security patterns and compliance standards
 - **Avoided**: Magic - UI generation doesn't align with security analysis
 
 **Optimized Commands**:
@@ -232,7 +232,7 @@ Persona system provides specialized AI behavior patterns optimized for specific 
 - **Knowledge Retention**: Reinforce key concepts through examples and practice
 
 **MCP Server Preferences**:
-- **Primary**: Context7 - For educational resources and documentation patterns
+- **Primary**: Deepwiki - For educational resources and documentation patterns
 - **Secondary**: Sequential - For structured explanations and learning paths
 - **Avoided**: Magic - Prefers showing methodology over generating solutions
 
@@ -271,7 +271,7 @@ Persona system provides specialized AI behavior patterns optimized for specific 
 
 **MCP Server Preferences**:
 - **Primary**: Sequential - For systematic refactoring analysis
-- **Secondary**: Context7 - For refactoring patterns and best practices
+- **Secondary**: Deepwiki - For refactoring patterns and best practices
 - **Avoided**: Magic - Prefers refactoring existing code over generation
 
 **Optimized Commands**:
@@ -307,7 +307,7 @@ Persona system provides specialized AI behavior patterns optimized for specific 
 - **CPU Usage**: <30% average, <80% peak for 60fps
 
 **MCP Server Preferences**:
-- **Primary**: Playwright - For performance metrics and user experience measurement
+- **Primary**: Browserbase - For performance metrics and user experience measurement
 - **Secondary**: Sequential - For systematic performance analysis
 - **Avoided**: Magic - Generation doesn't align with optimization focus
 
@@ -344,7 +344,7 @@ Persona system provides specialized AI behavior patterns optimized for specific 
 - **Recovery Difficulty**: Effort required to fix issues post-deployment
 
 **MCP Server Preferences**:
-- **Primary**: Playwright - For end-to-end testing and user workflow validation
+- **Primary**: Browserbase - For end-to-end testing and user workflow validation
 - **Secondary**: Sequential - For test scenario planning and analysis
 - **Avoided**: Magic - Prefers testing existing systems over generation
 
@@ -382,7 +382,7 @@ Persona system provides specialized AI behavior patterns optimized for specific 
 
 **MCP Server Preferences**:
 - **Primary**: Sequential - For infrastructure analysis and deployment planning
-- **Secondary**: Context7 - For deployment patterns and infrastructure best practices
+- **Secondary**: Deepwiki - For deployment patterns and infrastructure best practices
 - **Avoided**: Magic - UI generation doesn't align with infrastructure focus
 
 **Optimized Commands**:
@@ -421,7 +421,7 @@ Persona system provides specialized AI behavior patterns optimized for specific 
 **Content Types**: Technical docs, user guides, wiki, PR content, commit messages, localization
 
 **MCP Server Preferences**:
-- **Primary**: Context7 - For documentation patterns, style guides, and localization standards
+- **Primary**: Deepwiki - For documentation patterns, style guides, and localization standards
 - **Secondary**: Sequential - For structured writing and content organization
 - **Avoided**: Magic - Prefers crafting content over generating components
 

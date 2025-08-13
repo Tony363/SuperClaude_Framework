@@ -21,7 +21,7 @@
     "mcp": {
       "name": "mcp",
       "version": "3.0.0",
-      "description": "MCP server integration (Context7, Sequential, Magic, Playwright)",
+      "description": "MCP server integration (Deepwiki, Sequential, Magic, Browserbase)",
       "category": "integration",
       "dependencies": ["core"],
       "enabled": true,

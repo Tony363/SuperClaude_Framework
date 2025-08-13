@@ -32,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release of SuperClaude v3.0
 - 15 specialized slash commands for development tasks
 - Smart persona auto-activation system
-- MCP server integration (Context7, Sequential, Magic, Playwright)
+- MCP server integration (Deepwiki, Sequential, Magic, Browserbase)
 - Unified CLI installer with multiple installation profiles
 - Comprehensive documentation and user guides
 - Token optimization framework

@@ -1,11 +1,11 @@
 ---
-allowed-tools: [Read, Write, Edit, Glob, Grep, TodoWrite, Task, mcp__sequential-thinking__sequentialthinking, mcp__context7__context7]
+allowed-tools: [Read, Write, Edit, Glob, Grep, TodoWrite, Task, mcp__sequential-thinking__sequentialthinking, mcp__deepwiki__deepwiki_fetch]
 description: "Generate structured implementation workflows from PRDs and feature requirements with expert guidance"
 wave-enabled: true
 complexity-threshold: 0.6
 performance-profile: complex
 personas: [architect, analyzer, frontend, backend, security, devops, project-manager]
-mcp-servers: [sequential, context7, magic]
+mcp-servers: [sequential, deepwiki, magic]
 ---
 
 # /sc:workflow - Implementation Workflow Generator
@@ -15,7 +15,7 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 
 ## Usage
 ```
-/sc:workflow [prd-file|feature-description] [--persona expert] [--c7] [--sequential] [--strategy systematic|agile|mvp] [--output roadmap|tasks|detailed]
+/sc:workflow [prd-file|feature-description] [--persona expert] [--dw] [--sequential] [--strategy systematic|agile|mvp] [--output roadmap|tasks|detailed]
 ```
 
 ## Arguments
@@ -30,7 +30,7 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 - `--milestones` - Create milestone-based project phases
 
 ## MCP Integration Flags
-- `--c7` / `--context7` - Enable Context7 for framework patterns and best practices
+- `--dw` / `--deepwiki` - Enable Deepwiki for framework patterns and best practices
 - `--sequential` - Enable Sequential thinking for complex multi-step analysis
 - `--magic` - Enable Magic for UI component workflow planning
 - `--all-mcp` - Enable all MCP servers for comprehensive workflow generation
@@ -224,7 +224,7 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 
 ### Generate Workflow from PRD File
 ```
-/sc:workflow docs/feature-100-prd.md --strategy systematic --c7 --sequential --estimate
+/sc:workflow docs/feature-100-prd.md --strategy systematic --dw --sequential --estimate
 ```
 
 ### Create Frontend-Focused Workflow
@@ -239,7 +239,7 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 
 ### Backend API Workflow with Dependencies
 ```
-/sc:workflow payment-processing-api --persona backend --dependencies --c7 --output tasks
+/sc:workflow payment-processing-api --persona backend --dependencies --dw --output tasks
 ```
 
 ### Full-Stack Feature Workflow
@@ -298,6 +298,6 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 ## Claude Code Integration
 - **Multi-Tool Orchestration** - Coordinates Read, Write, Edit, Glob, Grep for comprehensive analysis
 - **Progressive Task Creation** - Uses TodoWrite for immediate next steps and Task for long-term planning
-- **MCP Server Coordination** - Intelligent routing to Context7, Sequential, and Magic based on workflow needs
+- **MCP Server Coordination** - Intelligent routing to Deepwiki, Sequential, and Magic based on workflow needs
 - **Cross-Command Integration** - Seamless handoff to implement, analyze, design, and other SuperClaude commands
 - **Evidence-Based Planning** - Maintains audit trail of decisions and rationale throughout workflow generation 

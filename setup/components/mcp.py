@@ -26,10 +26,10 @@ class MCPComponent(Component):
                 "npm_package": "@modelcontextprotocol/server-sequential-thinking",
                 "required": True
             },
-            "context7": {
-                "name": "context7", 
+            "deepwiki": {
+                "name": "deepwiki", 
                 "description": "Official library documentation and code examples",
-                "npm_package": "@upstash/context7-mcp",
+                "npm_package": "mcp-deepwiki@latest",
                 "required": True
             },
             "magic": {
@@ -40,10 +40,10 @@ class MCPComponent(Component):
                 "api_key_env": "TWENTYFIRST_API_KEY",
                 "api_key_description": "21st.dev API key for UI component generation"
             },
-            "playwright": {
-                "name": "playwright",
-                "description": "Cross-browser E2E testing and automation",
-                "npm_package": "@playwright/mcp@latest",
+            "browserbase": {
+                "name": "browserbase",
+                "description": "Cloud browser automation and E2E testing",
+                "npm_package": "@browserbasehq/mcp-server-browserbase",
                 "required": False
             }
         }
@@ -53,7 +53,7 @@ class MCPComponent(Component):
         return {
             "name": "mcp",
             "version": "3.0.0",
-            "description": "MCP server integration (Context7, Sequential, Magic, Playwright)",
+            "description": "MCP server integration (Deepwiki, Sequential, Magic, Browserbase)",
             "category": "integration"
         }
     

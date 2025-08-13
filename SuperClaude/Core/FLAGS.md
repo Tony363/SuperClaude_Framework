@@ -28,13 +28,13 @@ Flag system for Claude Code SuperClaude framework with auto-activation and confl
 - Deep architectural analysis (~10K tokens)
 - System-wide analysis with cross-module dependencies
 - Auto-activates: System refactoring, bottlenecks >3 modules, security vulnerabilities
-- Auto-enables `--seq --c7` and suggests `--persona-architect`
+- Auto-enables `--seq --dw` and suggests `--persona-architect`
 
 **`--ultrathink`**
 - Critical system redesign analysis (~32K tokens)
 - Maximum depth analysis for complex problems
 - Auto-activates: Legacy modernization, critical vulnerabilities, performance degradation >50%
-- Auto-enables `--seq --c7 --all-mcp` for comprehensive analysis
+- Auto-enables `--seq --dw --all-mcp` for comprehensive analysis
 
 ## Compression & Efficiency Flags
 
@@ -63,11 +63,11 @@ Flag system for Claude Code SuperClaude framework with auto-activation and confl
 
 ## MCP Server Control Flags
 
-**`--c7` / `--context7`**
-- Enable Context7 for library documentation lookup
+**`--dw` / `--deepwiki`**
+- Enable Deepwiki for library documentation lookup
 - Auto-activates: External library imports, framework questions
 - Detection: import/require/from/use statements, framework keywords
-- Workflow: resolve-library-id → get-library-docs → implement
+- Workflow: library-detection → documentation-fetch → pattern-extraction → implementation
 
 **`--seq` / `--sequential`**
 - Enable Sequential for complex multi-step analysis
@@ -79,8 +79,8 @@ Flag system for Claude Code SuperClaude framework with auto-activation and confl
 - Auto-activates: UI component requests, design system queries
 - Detection: component/button/form keywords, JSX patterns, accessibility requirements
 
-**`--play` / `--playwright`**
-- Enable Playwright for cross-browser automation and E2E testing
+**`--bb` / `--browserbase`**
+- Enable Browserbase for cloud browser automation and E2E testing
 - Detection: test/e2e keywords, performance monitoring, visual testing, cross-browser requirements
 
 **`--all-mcp`**
@@ -196,10 +196,10 @@ Flag system for Claude Code SuperClaude framework with auto-activation and confl
 ### MCP Server Auto-Activation
 
 **Auto-Activation Logic**:
-- **Context7**: External library imports, framework questions, documentation requests
+- **Deepwiki**: External library imports, framework questions, documentation requests
 - **Sequential**: Complex debugging, system design, any --think flags  
 - **Magic**: UI component requests, design system queries, frontend persona
-- **Playwright**: Testing workflows, performance monitoring, QA persona
+- **Browserbase**: Testing workflows, performance monitoring, QA persona
 
 ### Flag Precedence
 

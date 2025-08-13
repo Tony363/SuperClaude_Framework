@@ -95,10 +95,10 @@ SuperClaude makes Claude Code smarter for development work. Instead of generic r
 - Think of it as having a whole dev team that knows when to help
 
 **🔧 MCP Server Integration** *(smart external tools)*
-- Context7: Official library documentation lookup
+- Deepwiki: Official library documentation lookup
 - Sequential: Complex multi-step analysis
 - Magic: Modern UI component generation
-- Playwright: Browser automation and testing
+- Browserbase: Browser automation and testing
 - **Auto-connects when needed** - you don't manage this stuff
 
 **📋 Enhanced Task Management** *(happens behind the scenes)*
@@ -215,10 +215,10 @@ Flags change how SuperClaude processes your requests. They're like command-line 
 - `--validate` - Pre-operation risk assessment
 
 **MCP Server Control** 🔧
-- `--c7` - Enable Context7 for documentation
+- `--dw` - Enable Deepwiki for documentation
 - `--seq` - Enable Sequential for complex analysis
 - `--magic` - Enable Magic for UI components
-- `--play` - Enable Playwright for testing
+- `--bb` - Enable Browserbase for testing
 
 **Advanced Orchestration** 🎭
 - `--delegate` - Enable sub-agent delegation for parallel processing
@@ -263,11 +263,11 @@ MCP (Model Context Protocol) servers provide specialized capabilities beyond Cla
 
 **4 Integrated Servers:**
 
-**Context7** 📚
+**Deepwiki** 📚
 - **Purpose**: Official library documentation and best practices
 - **When it activates**: Framework questions, external library usage
 - **What it provides**: Up-to-date docs, code examples, patterns
-- **Example**: `/build react-app --c7` gets React best practices
+- **Example**: `/build react-app --dw` gets React best practices
 
 **Sequential** 🧠
 - **Purpose**: Complex multi-step analysis and systematic thinking
@@ -281,13 +281,13 @@ MCP (Model Context Protocol) servers provide specialized capabilities beyond Cla
 - **What it provides**: React/Vue/Angular components, design patterns
 - **Example**: `/build dashboard --magic` creates modern UI components
 
-**Playwright** 🎭
+**Browserbase** 🎭
 - **Purpose**: Browser automation, E2E testing, performance monitoring
 - **When it activates**: Testing workflows, performance analysis
 - **What it provides**: Cross-browser testing, visual validation, metrics
-- **Example**: `/test e2e --play` runs comprehensive browser tests
+- **Example**: `/test e2e --bb` runs comprehensive browser tests
 
-MCP servers usually coordinate automatically but you can control them with `--all-mcp`, `--no-mcp`, or specific flags like `--c7`.
+MCP servers usually coordinate automatically but you can control them with `--all-mcp`, `--no-mcp`, or specific flags like `--dw`.
 
 ### How Components Work Together 🤝
 
@@ -541,13 +541,13 @@ The detection engine analyzes every request through multiple lenses:
 
 **Domain Identification**:
 - **Frontend**: Keywords like "UI", "component", "responsive" → 🎨 frontend persona + Magic MCP
-- **Backend**: Keywords like "API", "database", "service" → ⚙️ backend persona + Context7 MCP
+- **Backend**: Keywords like "API", "database", "service" → ⚙️ backend persona + Deepwiki MCP
 - **Security**: Keywords like "vulnerability", "auth", "compliance" → 🛡️ security persona + Sequential MCP
-- **Performance**: Keywords like "slow", "optimize", "bottleneck" → ⚡ performance persona + Playwright MCP
+- **Performance**: Keywords like "slow", "optimize", "bottleneck" → ⚡ performance persona + Browserbase MCP
 
 **Operation Type Classification**:
 - **Analysis**: "analyze", "review", "understand" → Sequential MCP + analyzer persona
-- **Creation**: "create", "build", "implement" → Magic MCP (if UI) or Context7 (patterns)
+- **Creation**: "create", "build", "implement" → Magic MCP (if UI) or Deepwiki (patterns)
 - **Modification**: "improve", "refactor", "optimize" → Appropriate specialist persona
 - **Debugging**: "troubleshoot", "fix", "debug" → Sequential MCP + analyzer persona
 
@@ -562,7 +562,7 @@ The detection engine analyzes every request through multiple lenses:
 **Context-Based Activation**:
 ```bash
 /sc:build react-components/
-# → 🎨 frontend persona + Magic MCP + --c7 flag (React docs)
+# → 🎨 frontend persona + Magic MCP + --dw flag (React docs)
 ```
 
 **Performance-Based Activation**:
@@ -584,7 +584,7 @@ The routing system uses dynamic decision trees to map detected patterns to optim
 | "create UI component" | 🎨 frontend + Magic + --uc | Pretty often | Frontend domain with generation |
 | "security audit" | 🛡️ security + --ultrathink + Sequential | Most times | Security expertise needed |
 | "debug complex issue" | 🔍 analyzer + --think + Sequential | Often | Investigation methodology |
-| "improve performance" | ⚡ performance + --think-hard + Playwright | Pretty often | Performance expertise + testing |
+| "improve performance" | ⚡ performance + --think-hard + Browserbase | Pretty often | Performance expertise + testing |
 
 #### Intelligent Coordination
 
@@ -595,11 +595,11 @@ The routing system uses dynamic decision trees to map detected patterns to optim
 **Orchestrator usually coordinates**:
 - 🏗️ architect persona (system design)
 - 🎨 frontend persona (UI design) 
-- Context7 MCP (framework patterns)
+- Deepwiki MCP (framework patterns)
 - Sequential MCP (design methodology)
 
 **Fallback Strategies**:
-- Context7 unavailable → WebSearch for documentation → Manual implementation
+- Deepwiki unavailable → WebSearch for documentation → Manual implementation
 - Sequential timeout → Native Claude analysis → Note limitations
 - Magic failure → Basic component generation → Suggest manual enhancement
 
@@ -609,14 +609,14 @@ SuperClaude tries to implement an 8-step validation cycle for operations:
 
 #### 8-Step Quality Process
 
-1. **Syntax Validation** - Language parsers + Context7 standards
+1. **Syntax Validation** - Language parsers + Deepwiki standards
 2. **Type Checking** - Sequential analysis + compatibility verification
-3. **Linting** - Context7 rules + quality analysis
+3. **Linting** - Deepwiki rules + quality analysis
 4. **Security Review** - Sequential analysis + OWASP compliance
-5. **Testing** - Playwright E2E + coverage analysis (aiming for good coverage)
+5. **Testing** - Browserbase E2E + coverage analysis (aiming for good coverage)
 6. **Performance** - Sequential analysis + benchmarking
-7. **Documentation** - Context7 patterns + completeness validation
-8. **Integration** - Playwright testing + deployment validation
+7. **Documentation** - Deepwiki patterns + completeness validation
+8. **Integration** - Browserbase testing + deployment validation
 
 #### Validation Automation
 
@@ -697,7 +697,7 @@ The orchestrator tries to optimize for good performance through several strategi
 **Usually coordinates**:
 - ⚡ performance persona (primary)
 - 🎨 frontend persona (secondary, if UI detected)
-- Playwright MCP (performance testing)
+- Browserbase MCP (performance testing)
 - --think-hard flag (complex optimization)
 
 **Quality Gates**: Performance-focused validation with benchmarking
@@ -970,7 +970,7 @@ Try these commands to see how SuperClaude automatically chooses the right tools:
 # Security analysis → security persona + Sequential MCP  
 /sc:analyze auth/ --focus security
 
-# Performance investigation → performance persona + Playwright MCP
+# Performance investigation → performance persona + Browserbase MCP
 /sc:analyze --focus performance slow-endpoints/
 ```
 
@@ -1013,7 +1013,7 @@ For developing new features:
 
 # 3. Testing
 /sc:test --type e2e dashboard/
-# → 🧪 qa persona + Playwright MCP for testing
+# → 🧪 qa persona + Browserbase MCP for testing
 
 # 4. Documentation  
 /sc:document dashboard/ --type api
@@ -1078,8 +1078,8 @@ For improving existing code:
 # Performance-focused development
 /sc:analyze --focus performance --persona-performance
 /sc:improve --type performance --benchmark
-/sc:test --focus performance --play
-/sc:test --focus performance --play
+/sc:test --focus performance --bb
+/sc:test --focus performance --bb
 ```
 
 #### Team Collaboration Workflow
@@ -1141,11 +1141,11 @@ For projects spanning multiple technical domains:
 
 # Domain-specific improvements
 /sc:improve frontend/ --persona-frontend --magic
-/sc:improve backend/ --persona-backend --c7  
+/sc:improve backend/ --persona-backend --dw  
 /sc:improve infrastructure/ --persona-devops --seq
 
 # Integration validation
-/sc:test --type integration --play
+/sc:test --type integration --bb
 # → Comprehensive integration testing
 ```
 
@@ -1169,7 +1169,7 @@ For projects spanning multiple technical domains:
 /sc:build project/
 
 # Add intelligence
-/sc:build project/ --think --c7
+/sc:build project/ --think --dw
 
 # Full orchestration
 /sc:build project/ --wave-mode auto --all-mcp --delegate auto
@@ -1223,7 +1223,7 @@ For projects spanning multiple technical domains:
 /sc:analyze frontend-code/ --persona-security  # Security view of frontend
 
 # Combine multiple approaches
-/sc:analyze --focus performance --persona-performance --play
+/sc:analyze --focus performance --persona-performance --bb
 ```
 
 ### Building Your Own Workflows 🛠️
@@ -1233,7 +1233,7 @@ Track what combinations work well for your specific needs:
 
 ```bash
 # Security-focused API development
-alias secure-api="/build api/ --persona-security --validate --c7"
+alias secure-api="/build api/ --persona-security --validate --dw"
 
 # Performance-optimized frontend work  
 alias perf-frontend="/build ui/ --persona-performance --magic --benchmark"
@@ -1247,7 +1247,7 @@ Try different combinations to find what works best:
 
 ```bash
 # For learning: verbose explanations with docs
-/sc:explain concept --persona-mentor --verbose --c7
+/sc:explain concept --persona-mentor --verbose --dw
 
 # For safety: maximum validation and checking
 /sc:improve critical-code/ --safe-mode --validate --preview
@@ -1277,8 +1277,8 @@ SuperClaude automatically coordinates components based on context. Here's how it
 - **Command**: `/build` handles compilation and bundling
 - **Persona**: 🎨 frontend auto-activates (React detected)
 - **MCP**: Magic provides modern UI components
-- **MCP**: Context7 provides React best practices 
-- **Flags**: `--c7` auto-activates for framework docs
+- **MCP**: Deepwiki provides React best practices 
+- **Flags**: `--dw` auto-activates for framework docs
 
 **Result**: React-optimized build with modern components, accessibility checks, and performance optimization.
 
@@ -1306,7 +1306,7 @@ SuperClaude automatically coordinates components based on context. Here's how it
 - **Persona**: ⚡ performance auto-activates (performance keywords)
 - **Persona**: 🔍 analyzer provides investigation methodology
 - **MCP**: Sequential structures the debugging process
-- **MCP**: Playwright provides performance testing
+- **MCP**: Browserbase provides performance testing
 - **Flags**: `--think` auto-activates (complex debugging)
 
 **Result**: Systematic performance investigation with metrics, bottleneck identification, and optimization recommendations.
@@ -1337,7 +1337,7 @@ Sometimes you want to override auto-coordination for specific needs:
 # → Maximum capabilities, higher token usage
 
 # Use specific MCP combinations
-/sc:build ui-components/ --magic --c7 --no-seq
+/sc:build ui-components/ --magic --dw --no-seq
 # → UI generation + docs, skip complex analysis
 ```
 
@@ -1382,7 +1382,7 @@ Flags work together to create powerful combinations:
 #### Learning-Focused Patterns
 ```bash
 # Educational explanations with full context
-/sc:explain complex-concept --persona-mentor --verbose --c7
+/sc:explain complex-concept --persona-mentor --verbose --dw
 # → Educational approach + detailed explanations + official docs
 
 # Deep understanding with transparency
@@ -1399,7 +1399,7 @@ MCP servers often work together automatically:
 /sc:improve old-react-code/
 ```
 **MCP coordination**:
-- Context7: Gets current React best practices
+- Deepwiki: Gets current React best practices
 - Sequential: Analyzes code against modern patterns
 - Magic: Suggests modern component patterns
 - Result: Modernization with current standards
@@ -1410,8 +1410,8 @@ MCP servers often work together automatically:
 ```
 **MCP coordination**:
 - Sequential: Plans comprehensive test strategy
-- Playwright: Executes performance testing
-- Context7: Provides testing best practices
+- Browserbase: Executes performance testing
+- Deepwiki: Provides testing best practices
 - Result: Performance testing with industry standards
 
 #### Complex Problem Solving
@@ -1420,8 +1420,8 @@ MCP servers often work together automatically:
 ```
 **MCP coordination**:
 - Sequential: Structures systematic investigation
-- Context7: Provides service architecture patterns
-- Playwright: Tests service interactions
+- Deepwiki: Provides service architecture patterns
+- Browserbase: Tests service interactions
 - Result: Comprehensive multi-domain debugging
 
 ### Persona Collaboration Patterns 🎭
@@ -1469,9 +1469,9 @@ For complex multi-stage operations:
 
 **Wave coordination**:
 1. **Analysis Wave**: 🔍 analyzer + Sequential assess current state
-2. **Planning Wave**: 🏗️ architect + Context7 design improvements  
+2. **Planning Wave**: 🏗️ architect + Deepwiki design improvements  
 3. **Implementation Wave**: Appropriate specialists + tools implement changes
-4. **Validation Wave**: 🧪 qa + Playwright verify improvements
+4. **Validation Wave**: 🧪 qa + Browserbase verify improvements
 5. **Optimization Wave**: ⚡ performance + metrics optimize results
 
 #### Sub-Agent Delegation
@@ -1492,8 +1492,8 @@ SuperClaude adapts coordination based on context:
 
 **Development Phase Detection**:
 - Planning phase → 🏗️ architect + ✍️ scribe emphasis
-- Implementation phase → Domain specialists + Magic/Context7
-- Testing phase → 🧪 qa + Playwright emphasis
+- Implementation phase → Domain specialists + Magic/Deepwiki
+- Testing phase → 🧪 qa + Browserbase emphasis
 - Deployment phase → 🚀 devops + validation emphasis
 
 **Complexity-Based Scaling**:
@@ -1523,8 +1523,8 @@ SuperClaude adapts coordination based on context:
 # Start simple, add complexity as needed
 /sc:analyze code.js                    # Basic analysis
 /sc:analyze code.js --think            # Add thinking
-/sc:analyze code.js --think --c7       # Add documentation
-/sc:analyze code.js --think --c7 --seq # Add systematic analysis
+/sc:analyze code.js --think --dw       # Add documentation
+/sc:analyze code.js --think --dw --seq # Add systematic analysis
 ```
 
 #### Understanding Coordination Decisions
@@ -1542,7 +1542,7 @@ SuperClaude adapts coordination based on context:
 - Start with simple commands and add flags as needed
 
 #### Understand Flag Interactions
-- Some flags override others (`--no-mcp` overrides `--c7`, `--seq`)
+- Some flags override others (`--no-mcp` overrides `--dw`, `--seq`)
 - Safety flags take precedence over optimization flags
 - Persona flags can be overridden by more specific persona requests
 
@@ -1575,7 +1575,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 **What happens**:
 - 🔍 analyzer persona activates (investigation needed)
 - Sequential MCP structures the analysis  
-- Context7 MCP identifies framework patterns
+- Deepwiki MCP identifies framework patterns
 - Creates comprehensive project overview
 
 **Output**: Project structure, tech stack, dependencies, and architecture summary.
@@ -1598,7 +1598,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 ```
 **What happens**:
 - 🏗️ architect persona provides system design perspective
-- Context7 MCP brings in React/Node.js architectural patterns
+- Deepwiki MCP brings in React/Node.js architectural patterns
 - Sequential MCP structures the architectural analysis
 - Identifies design patterns, data flow, and component relationships
 
@@ -1610,7 +1610,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 ```
 **What happens**:
 - ✍️ scribe persona creates professional documentation
-- Context7 MCP provides documentation standards
+- Deepwiki MCP provides documentation standards
 - Synthesizes previous analysis into newcomer-friendly guide
 - Includes setup instructions and key concepts
 
@@ -1629,7 +1629,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 **Auto-coordination**:
 - 🛡️ security persona activates (security expertise)
 - Sequential MCP provides systematic threat modeling
-- Context7 MCP brings in OWASP and security best practices
+- Deepwiki MCP brings in OWASP and security best practices
 - `--validate` flag auto-activates (high-risk operation)
 
 **Output**: Detailed security analysis with threat assessment and vulnerability prioritization.
@@ -1654,17 +1654,17 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 - 🛡️ security persona maintains security focus
 - `--safe-mode` ensures conservative changes
 - `--validate` confirms changes before applying
-- Context7 MCP provides secure coding patterns
+- Deepwiki MCP provides secure coding patterns
 
 **Output**: Security improvements with minimal risk and comprehensive validation.
 
 #### Step 4: Security Testing
 ```bash
-/sc:test auth-system/ --type security --play
+/sc:test auth-system/ --type security --bb
 ```
 **What happens**:
 - 🧪 qa persona provides testing expertise  
-- Playwright MCP executes security testing scenarios
+- Browserbase MCP executes security testing scenarios
 - Tests authentication flows, session management, and access controls
 - Validates security improvements are working
 
@@ -1682,20 +1682,20 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 ```
 **Auto-coordination**:
 - ⚡ performance persona activates (performance expertise)
-- Playwright MCP provides performance metrics and testing
-- Context7 MCP brings in React performance best practices
+- Browserbase MCP provides performance metrics and testing
+- Deepwiki MCP brings in React performance best practices
 - `--think-hard` auto-activates (complex performance analysis)
 
 **Output**: Performance bottleneck identification with metrics and prioritized optimization opportunities.
 
 #### Step 2: Frontend Performance Deep Dive
 ```bash
-/sc:analyze frontend/ --persona-frontend --focus performance --play
+/sc:analyze frontend/ --persona-frontend --focus performance --bb
 ```
 **What happens**:
 - 🎨 frontend persona provides UI/UX perspective
 - ⚡ performance persona coordinates (dual expertise)
-- Playwright MCP measures Core Web Vitals, bundle sizes, render times
+- Browserbase MCP measures Core Web Vitals, bundle sizes, render times
 - Magic MCP suggests modern optimization patterns
 
 **Output**: Frontend-specific performance analysis with accessibility and user experience considerations.
@@ -1707,7 +1707,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 **Auto-coordination**:
 - ⚙️ backend persona provides server-side expertise
 - Sequential MCP analyzes database queries and API patterns
-- Context7 MCP provides Node.js/Express optimization patterns
+- Deepwiki MCP provides Node.js/Express optimization patterns
 - Identifies slow queries, inefficient endpoints, and caching opportunities
 
 **Output**: Backend performance analysis with database and API optimization recommendations.
@@ -1726,10 +1726,10 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 5: Performance Testing Validation
 ```bash
-/sc:test dashboard/ --focus performance --play --benchmark
+/sc:test dashboard/ --focus performance --bb --benchmark
 ```
 **What happens**:
-- Playwright MCP executes comprehensive performance testing
+- Browserbase MCP executes comprehensive performance testing
 - Tests on multiple devices, network conditions, and browsers
 - Measures Core Web Vitals, load times, and user interaction metrics
 - Validates improvements meet performance budgets
@@ -1749,7 +1749,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 **Auto-coordination**:
 - 🏗️ architect persona provides structural analysis
 - `--ultrathink` enables maximum analysis depth
-- Context7 MCP compares against current React patterns
+- Deepwiki MCP compares against current React patterns
 - Sequential MCP provides systematic modernization assessment
 
 **Output**: Comprehensive legacy analysis with modernization roadmap and risk assessment.
@@ -1760,7 +1760,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 ```
 **What happens**:
 - 🏗️ architect persona designs migration strategy
-- Context7 MCP provides current React ecosystem patterns
+- Deepwiki MCP provides current React ecosystem patterns
 - Sequential MCP structures the modernization plan
 - Identifies migration phases, dependencies, and risks
 
@@ -1781,11 +1781,11 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 
 #### Step 4: Testing Modernization
 ```bash
-/sc:test modernized-app/ --type integration --coverage --play
+/sc:test modernized-app/ --type integration --coverage --bb
 ```
 **What happens**:
 - 🧪 qa persona ensures quality throughout modernization
-- Playwright MCP provides comprehensive testing
+- Browserbase MCP provides comprehensive testing
 - Tests legacy compatibility and new functionality
 - Validates modernization doesn't break existing features
 
@@ -1804,7 +1804,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 **Auto-coordination**:
 - ⚙️ backend persona provides API design expertise
 - 🏗️ architect persona coordinates for system integration
-- Context7 MCP provides API design best practices
+- Deepwiki MCP provides API design best practices
 - Sequential MCP structures requirement analysis
 
 **Output**: Comprehensive API design with endpoints, data models, and integration patterns.
@@ -1816,7 +1816,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 **What happens**:
 - 🛡️ security persona evaluates API security
 - Reviews authentication, authorization, and data protection
-- Context7 MCP provides OWASP API security guidelines
+- Deepwiki MCP provides OWASP API security guidelines
 - Identifies security requirements and threat vectors
 
 **Output**: Security assessment with hardening recommendations and compliance requirements.
@@ -1828,7 +1828,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 **Auto-coordination**:
 - ⚡ performance persona evaluates scalability
 - Analyzes endpoint performance, caching strategies, rate limiting
-- Context7 MCP provides high-performance API patterns
+- Deepwiki MCP provides high-performance API patterns
 - Projects performance under load
 
 **Output**: Performance analysis with scalability recommendations and optimization strategies.
@@ -1839,7 +1839,7 @@ Real-world scenarios showing SuperClaude in action. These examples demonstrate h
 ```
 **What happens**:
 - ✍️ scribe persona creates professional API documentation
-- Context7 MCP provides API documentation standards
+- Deepwiki MCP provides API documentation standards
 - Creates examples, integration guides, and troubleshooting
 - Tailored for multiple consuming teams
 
@@ -1939,10 +1939,10 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sc:analyze complex-system/ --think
 
 # Add documentation if external libraries involved
-/sc:analyze complex-system/ --think --c7
+/sc:analyze complex-system/ --think --dw
 
 # Full analysis for critical systems
-/sc:analyze complex-system/ --think-hard --c7 --seq --validate
+/sc:analyze complex-system/ --think-hard --dw --seq --validate
 ```
 
 **Why**: Incremental complexity helps you understand what each flag adds and avoids over-engineering simple problems.
@@ -1956,10 +1956,10 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sc:troubleshoot issue --think --seq → /analyze affected-code/ --focus quality
 
 # Learning and documentation workflow
-/sc:explain concept --persona-mentor --verbose --c7
+/sc:explain concept --persona-mentor --verbose --dw
 
 # Performance optimization workflow
-/sc:analyze --focus performance --persona-performance --play
+/sc:analyze --focus performance --persona-performance --bb
 ```
 
 **Why**: These combinations are proven patterns that work well together and don't conflict.
@@ -1967,7 +1967,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 #### Avoid Flag Conflicts
 ```bash
 # ❌ Conflicting flags
-/sc:analyze code/ --no-mcp --c7  # --no-mcp overrides --c7
+/sc:analyze code/ --no-mcp --dw  # --no-mcp overrides --dw
 
 # ❌ Counterproductive combinations
 /sc:analyze small-file.js --ultrathink --all-mcp  # Overkill for simple tasks
@@ -2021,10 +2021,10 @@ Based on real-world usage patterns and successful workflows, here are practical 
 ### MCP Server Strategy 🔧
 
 #### Understand When Each Server Helps
-- **Context7**: When working with frameworks, libraries, or need official documentation
+- **Deepwiki**: When working with frameworks, libraries, or need official documentation
 - **Sequential**: For complex debugging, systematic analysis, or architectural decisions  
 - **Magic**: For UI component generation, design systems, or frontend development
-- **Playwright**: For testing, performance measurement, or browser automation
+- **Browserbase**: For testing, performance measurement, or browser automation
 
 #### Optimize for Performance vs. Capabilities
 ```bash
@@ -2035,7 +2035,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sc:analyze complex-system/ --all-mcp --think-hard
 
 # Balanced approach for most work
-/sc:analyze typical-component/ --c7  # Just documentation lookup
+/sc:analyze typical-component/ --dw  # Just documentation lookup
 ```
 
 **Why**: Matching MCP usage to task complexity optimizes both speed and quality of results.
@@ -2051,10 +2051,10 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sc:analyze component.js --think
 
 # Level 3: Add documentation for frameworks
-/sc:analyze component.js --think --c7
+/sc:analyze component.js --think --dw
 
 # Level 4: Full analysis for critical code
-/sc:analyze component.js --think-hard --c7 --seq --validate
+/sc:analyze component.js --think-hard --dw --seq --validate
 ```
 
 **Why**: Start with what you need and add complexity only when necessary. Prevents over-engineering and saves time.
@@ -2205,7 +2205,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 /sc:analyze api-design/ --persona-performance
 
 # Compare tool combinations
-/sc:build app/ --magic --c7
+/sc:build app/ --magic --dw
 /sc:build app/ --no-mcp --uc  # Faster but simpler
 ```
 
@@ -2216,11 +2216,11 @@ Based on real-world usage patterns and successful workflows, here are practical 
 # Identify what works for your workflow
 # Security-focused API development
 /sc:design api --persona-security --validate
-/sc:build api --persona-backend --c7
-/sc:test api --type security --play
+/sc:build api --persona-backend --dw
+/sc:test api --type security --bb
 
 # Create your own efficient combinations
-/sc:analyze code/ --think --c7 --safe-mode  # Your personal "thorough analysis"
+/sc:analyze code/ --think --dw --safe-mode  # Your personal "thorough analysis"
 ```
 
 **Why**: Developing your own proven patterns increases productivity and ensures consistent quality.
@@ -2261,7 +2261,7 @@ Based on real-world usage patterns and successful workflows, here are practical 
 
 # ✅ Understand what each flag does
 /sc:command --think  # Because I need deeper analysis
-/sc:command --c7     # Because I'm working with external libraries
+/sc:command --dw     # Because I'm working with external libraries
 ```
 
 ### Measuring Success 📊
@@ -2309,7 +2309,7 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 # Start simple and add complexity
 /sc:analyze code.js                    # Basic
 /sc:analyze code.js --think            # Add depth
-/sc:analyze code.js --think --c7       # Add documentation
+/sc:analyze code.js --think --dw       # Add documentation
 ```
 
 **Common Causes**:
@@ -2382,12 +2382,12 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 **Common Conflicts**:
 ```bash
 # ❌ These conflict
-/sc:command --no-mcp --c7        # --no-mcp overrides --c7
+/sc:command --no-mcp --dw        # --no-mcp overrides --dw
 /sc:command --answer-only --plan # --answer-only skips planning
 /sc:command --uc --verbose       # --uc overrides --verbose
 
 # ✅ These work together
-/sc:command --think --c7 --seq   # Complementary capabilities
+/sc:command --think --dw --seq   # Complementary capabilities
 /sc:command --safe-mode --validate --preview  # Layered safety
 ```
 
@@ -2498,10 +2498,10 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 /sc:load --summary  # Should show available MCP servers
 
 # Test specific servers
-/sc:analyze react-app/ --c7     # Should use Context7
+/sc:analyze react-app/ --dw     # Should use Deepwiki
 /sc:troubleshoot issue --seq    # Should use Sequential
 /sc:build ui/ --magic           # Should use Magic
-/sc:test app/ --play            # Should use Playwright
+/sc:test app/ --bb            # Should use Browserbase
 ```
 
 **Common Solutions**:
@@ -2510,7 +2510,7 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 /sc:analyze code/ --all-mcp
 
 # Check if servers are disabled
-/sc:analyze code/ --c7  # If this doesn't work, Context7 may be unavailable
+/sc:analyze code/ --dw  # If this doesn't work, Deepwiki may be unavailable
 
 # Use fallback approaches
 /sc:analyze react-app/ --no-mcp  # Use native tools if MCP unavailable
@@ -2529,7 +2529,7 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 /sc:analyze react-code/ --magic --no-seq  # Only UI generation, skip analysis
 
 # Optimize MCP usage
-/sc:analyze code/ --uc --c7  # Compression + documentation only
+/sc:analyze code/ --uc --dw  # Compression + documentation only
 ```
 
 ### Performance Issues ⚡
@@ -2627,7 +2627,7 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 /sc:load --deep --summary
 
 # Be explicit about project type
-/sc:analyze react-typescript-app/ --c7  # Include tech stack in description
+/sc:analyze react-typescript-app/ --dw  # Include tech stack in description
 
 # Use appropriate personas
 /sc:analyze node-api/ --persona-backend
@@ -2644,7 +2644,7 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 /sc:command args --introspect
 
 # Use explicit flags for consistency
-/sc:analyze code/ --persona-analyzer --think --c7  # Explicit configuration
+/sc:analyze code/ --persona-analyzer --think --dw  # Explicit configuration
 ```
 
 **Solutions**:
@@ -2653,7 +2653,7 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 /sc:improve code/ --focus performance --persona-performance --safe-mode
 
 # Use consistent flag patterns
-/sc:analyze --think --c7     # Your standard thorough analysis
+/sc:analyze --think --dw     # Your standard thorough analysis
 /sc:improve --safe-mode      # Your standard safe improvement
 ```
 
@@ -2684,7 +2684,7 @@ When SuperClaude doesn't work as expected, here's how to diagnose and fix common
 #### Reporting Issues
 
 When reporting problems, include:
-- **Exact command used**: `/analyze code/ --think --c7`
+- **Exact command used**: `/analyze code/ --think --dw`
 - **Expected behavior**: "Should provide security analysis"
 - **Actual behavior**: "Only provided basic code review"
 - **Context**: "Working on Node.js authentication system"
@@ -2706,7 +2706,7 @@ When reporting problems, include:
 | Too much output | Use compression | `--uc` |
 | Risky changes | Use safety features | `--safe-mode --preview` |
 | MCP not working | Force activation or disable | `--all-mcp` or `--no-mcp` |
-| Inconsistent results | Use explicit flags | `--persona-x --think --c7` |
+| Inconsistent results | Use explicit flags | `--persona-x --think --dw` |
 | Context issues | Load project context | `/load --deep` |
 | Token limits | Enable compression + delegation | `--uc --delegate auto` |
 

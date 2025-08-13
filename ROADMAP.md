@@ -10,7 +10,7 @@ SuperClaude v3 just came out of beta! 🎉 Here's the honest current state:
 - **Installation Suite** - Completely rewritten and much more reliable
 - **Core Framework** - 9 documentation files that guide Claude's behavior  
 - **15 Slash Commands** - Streamlined from 20+ to essential ones
-- **MCP Integration** - Context7, Sequential, Magic, Playwright (partially working)
+- **MCP Integration** - Deepwiki, Sequential, Magic, Browserbase (partially working)
 - **Unified CLI** - `SuperClaude.py` handles install/update/backup
 
 ### ⚠️ What Needs Work
@@ -35,10 +35,10 @@ Our immediate focus is making v3 stable and polished:
 - More reliable MCP server connections
 
 ### MCP Integration Improvements 🔧
-- Smoother Context7 documentation lookup
+- Smoother Deepwiki documentation lookup
 - Better Sequential reasoning integration  
 - More reliable Magic UI component generation
-- Improved Playwright browser automation
+- Improved Browserbase browser automation
 
 ### Documentation & Examples 📝
 - User guides for common workflows

@@ -213,7 +213,7 @@ SuperClaude install --profile developer
 - **Time**: ~5 minutes
 - **Space**: ~100MB
 - **Good for**: Power users, contributors, advanced workflows
-- **Includes**: Everything + Context7, Sequential, Magic, Playwright servers
+- **Includes**: Everything + Deepwiki, Sequential, Magic, Browserbase servers
 
 ### 🎛️ Interactive Installation
 ```bash
