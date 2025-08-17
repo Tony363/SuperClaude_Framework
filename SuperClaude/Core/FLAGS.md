@@ -183,6 +183,44 @@ Flag system for Claude Code SuperClaude framework with auto-activation and confl
 - `--persona-devops`: Infrastructure specialist
 - `--persona-scribe=lang`: Professional writer, documentation specialist
 
+## GPT-5 Planning Flags
+
+**`--gpt5-plan`**
+- Enable GPT-5 enhanced planning mode
+- Activates dual-model planning with Claude and GPT-5
+- Auto-activates: Complex multi-file operations, architectural planning
+- Requires: OPENAI_API_KEY environment variable
+
+**`--gpt5-model [model]`**
+- Select GPT-5 model variant
+- Options: gpt-5, gpt-5-mini, gpt-5-nano, gpt-5-chat
+- Default: gpt-5
+- Cost optimization: Use mini/nano for simpler tasks
+
+**`--gpt5-verbosity [level]`**
+- Control GPT-5 response detail level
+- Options: minimal, low, medium, high
+- Default: medium
+- Higher verbosity provides more detailed planning insights
+
+**`--dual-planning`**
+- Enable dual-model planning strategy
+- Merges insights from both Claude and GPT-5
+- Shows consensus points and unique contributions
+- Auto-activates: High-complexity planning tasks
+
+**`--planning-strategy [strategy]`**
+- Select planning strategy
+- Options: claude_only, gpt5_only, dual_model, consensus, complementary
+- Default: dual_model
+- consensus: Emphasizes agreement between models
+- complementary: Leverages unique strengths of each model
+
+**`--no-gpt5`**
+- Disable GPT-5 integration
+- Use Claude-only planning
+- Useful for cost control or when API unavailable
+
 ## Introspection & Transparency Flags
 
 **`--introspect` / `--introspection`**

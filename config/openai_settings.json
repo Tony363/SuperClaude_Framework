@@ -1,0 +1,104 @@
+{
+  "openai": {
+    "api_key": "${OPENAI_API_KEY}",
+    "organization": "${OPENAI_ORG_ID}",
+    "models": {
+      "primary": "gpt-5",
+      "fallback": "gpt-5-mini",
+      "testing": "gpt-5-nano",
+      "chat": "gpt-5-chat"
+    },
+    "parameters": {
+      "verbosity": "medium",
+      "temperature": 0.7,
+      "max_tokens": 4000,
+      "timeout": 30,
+      "max_retries": 3
+    },
+    "features": {
+      "dual_planning": true,
+      "plan_mode_integration": true,
+      "auto_enhance": false,
+      "code_analysis": true,
+      "code_generation": true
+    },
+    "cost_management": {
+      "daily_limit": 10.0,
+      "warning_threshold": 5.0,
+      "track_usage": true,
+      "log_requests": true
+    },
+    "performance": {
+      "cache_responses": true,
+      "cache_ttl": 3600,
+      "batch_requests": false,
+      "async_mode": true
+    },
+    "security": {
+      "sanitize_inputs": true,
+      "mask_sensitive_data": true,
+      "audit_logging": true,
+      "encrypted_storage": false
+    },
+    "hooks": {
+      "plan_mode": {
+        "enabled": true,
+        "auto_activate": true,
+        "merge_insights": true,
+        "show_consensus": true
+      },
+      "pre_tool_use": {
+        "enabled": false,
+        "enhance_with_gpt5": false
+      },
+      "post_tool_use": {
+        "enabled": false,
+        "analyze_results": false
+      }
+    },
+    "model_specific": {
+      "gpt-5": {
+        "description": "Full GPT-5 model with maximum capabilities",
+        "use_cases": ["complex_planning", "architecture", "code_generation"],
+        "cost_per_million_input": 1.25,
+        "cost_per_million_output": 10.0,
+        "performance": {
+          "swe_bench": 0.749,
+          "aider_polyglot": 0.88,
+          "mmmu": 0.842
+        }
+      },
+      "gpt-5-mini": {
+        "description": "Smaller, faster variant for routine tasks",
+        "use_cases": ["simple_planning", "code_review", "documentation"],
+        "cost_per_million_input": 0.625,
+        "cost_per_million_output": 5.0
+      },
+      "gpt-5-nano": {
+        "description": "Minimal variant for testing and development",
+        "use_cases": ["testing", "quick_checks", "validation"],
+        "cost_per_million_input": 0.3125,
+        "cost_per_million_output": 2.5
+      },
+      "gpt-5-chat": {
+        "description": "Optimized for conversational interactions",
+        "use_cases": ["explanations", "tutoring", "discussions"],
+        "cost_per_million_input": 0.75,
+        "cost_per_million_output": 6.0
+      }
+    },
+    "fallback_behavior": {
+      "on_api_error": "use_claude_only",
+      "on_rate_limit": "retry_with_backoff",
+      "on_timeout": "use_cached_response",
+      "on_cost_limit": "switch_to_mini",
+      "max_fallback_attempts": 3
+    },
+    "integration": {
+      "superclaude_version": "3.0.0",
+      "min_claude_version": "1.0.0",
+      "openai_sdk_version": ">=1.40.0",
+      "python_version": ">=3.8"
+    }
+  }
+}

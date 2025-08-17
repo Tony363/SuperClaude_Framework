@@ -21,7 +21,8 @@ class HooksComponent(Component):
             "post_tool_use.py",
             "error_handler.py",
             "context_accumulator.py",
-            "performance_monitor.py"
+            "performance_monitor.py",
+            "plan_mode_hook.py"  # GPT-5 plan mode integration
         ]
     
     def get_metadata(self) -> Dict[str, str]:

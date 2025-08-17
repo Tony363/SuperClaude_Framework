@@ -4,11 +4,12 @@ Operational modes reference for Claude Code SuperClaude framework.
 
 ## Overview
 
-Three primary modes for optimal performance:
+Four primary modes for optimal performance:
 
 1. **Task Management**: Structured workflow execution and progress tracking
 2. **Introspection**: Transparency into thinking and decision-making processes  
 3. **Token Efficiency**: Optimized communication and resource management
+4. **GPT-5 Enhanced Planning**: Dual-model planning with GPT-5 integration
 
 ---
 
@@ -308,3 +309,169 @@ Meta-cognitive analysis mode that enables Claude Code to step outside normal ope
 - **Quality**: ≥95% information preservation score
 - **Speed**: <100ms compression decision and application time
 - **Integration**: Seamless SuperClaude framework compliance
+
+---
+
+# GPT-5 Enhanced Planning Mode
+
+## Overview
+
+Dual-model planning mode that augments Claude Code's native planning capabilities with OpenAI's GPT-5 advanced reasoning and code generation abilities.
+
+## Core Features
+
+### Dual-Model Analysis
+- **Parallel Processing**: Both Claude and GPT-5 analyze planning requests simultaneously
+- **Merged Insights**: Intelligent combination of planning strategies from both models
+- **Consensus Detection**: Identifies areas where both models agree for higher confidence
+- **Complementary Strengths**: Leverages Claude's context awareness with GPT-5's coding expertise
+
+### GPT-5 Integration Points
+- **Plan Mode Hook**: Automatic detection and interception of plan mode activation
+- **API Integration**: Seamless OpenAI API calls with fallback handling
+- **Model Selection**: Choose between gpt-5, gpt-5-mini, gpt-5-nano, gpt-5-chat
+- **Verbosity Control**: Adjust response detail level (minimal, low, medium, high)
+
+## Activation Methods
+
+### Automatic Activation
+- Detects when Claude Code enters plan mode
+- Triggers on complex multi-file operations
+- Activates for architectural planning requests
+- Engages for performance-critical implementations
+
+### Manual Activation
+- **Flag**: `--gpt5-plan` to enable GPT-5 planning
+- **Model Selection**: `--gpt5-model [variant]` to choose specific model
+- **Verbosity**: `--gpt5-verbosity [level]` to control detail level
+- **Config**: Set `ENABLE_DUAL_PLANNING=true` in environment
+
+## GPT-5 Model Capabilities
+
+### Performance Metrics
+- **SWE-bench Verified**: 74.9% accuracy
+- **Aider Polyglot**: 88% success rate
+- **MMMU**: 84.2% score
+- **Tool Calling**: 50% lower error rate than other models
+- **Hallucination Reduction**: 45% fewer factual errors than GPT-4
+
+### Specialized Strengths
+- **Code Generation**: Production-ready code with comprehensive error handling
+- **Bug Detection**: Advanced pattern recognition for potential issues
+- **Architecture Planning**: System design with scalability considerations
+- **Tool Chaining**: Reliable execution of dozens of sequential/parallel tools
+
+## Configuration
+
+### Environment Variables
+```bash
+OPENAI_API_KEY=sk-your-key-here
+GPT5_MODEL=gpt-5
+GPT5_VERBOSITY=medium
+ENABLE_DUAL_PLANNING=true
+```
+
+### Cost Management
+- **GPT-5**: $1.25/million input, $10/million output tokens
+- **GPT-5-mini**: $0.625/million input, $5/million output tokens
+- **GPT-5-nano**: $0.3125/million input, $2.5/million output tokens
+- **Daily Limits**: Configurable cost caps with automatic fallback
+
+## Planning Workflow
+
+### 1. Detection Phase
+- Claude Code enters plan mode
+- Hook system detects activation
+- Context and request captured
+
+### 2. Dual Analysis
+- Claude performs initial planning
+- GPT-5 receives context and provides insights
+- Both models work in parallel
+
+### 3. Insight Merging
+- Consensus points identified
+- Unique contributions preserved
+- Conflicts resolved intelligently
+
+### 4. Enhanced Output
+- Combined plan presented to user
+- Confidence scores displayed
+- Source attribution for each insight
+
+## Fallback Behavior
+
+### API Failures
+- Graceful degradation to Claude-only planning
+- Cached responses used when available
+- Error logging for debugging
+
+### Rate Limiting
+- Automatic retry with exponential backoff
+- Switch to lighter models (mini/nano)
+- Queue management for batch requests
+
+### Cost Limits
+- Automatic model downgrade (gpt-5 → gpt-5-mini)
+- Daily/monthly budget enforcement
+- Warning notifications at thresholds
+
+## Security & Privacy
+
+### Data Protection
+- API keys stored in environment variables
+- Request sanitization before transmission
+- Sensitive data masking
+- Audit logging for compliance
+
+### Request Filtering
+- PII detection and removal
+- Code secrets scanning
+- Proprietary information protection
+- GDPR/CCPA compliance
+
+## Performance Optimization
+
+### Caching Strategy
+- Response caching with TTL
+- Pattern-based cache matching
+- Session-level cache sharing
+- Cross-request optimization
+
+### Async Processing
+- Non-blocking API calls
+- Parallel request handling
+- Queue management
+- Timeout handling
+
+## Use Cases
+
+### Optimal For
+- Complex architectural planning
+- Multi-file refactoring strategies
+- Performance optimization planning
+- Security vulnerability assessment
+- Large-scale system design
+
+### Not Recommended For
+- Simple single-file edits
+- Routine code formatting
+- Basic syntax corrections
+- Low-complexity tasks
+
+## Integration with Other Modes
+
+### Task Management Mode
+- Enhanced task breakdown with GPT-5 insights
+- Better estimation with dual-model analysis
+- Risk identification from both perspectives
+
+### Introspection Mode
+- Meta-analysis of planning decisions
+- Comparison of model reasoning approaches
+- Learning from divergent strategies
+
+### Token Efficiency Mode
+- Intelligent compression of dual-model output
+- Selective inclusion of key insights
+- Optimized response formatting
