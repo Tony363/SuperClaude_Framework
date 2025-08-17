@@ -5,8 +5,20 @@ Plan Mode Hook - Integrates GPT-5 for enhanced planning in Claude Code
 import os
 import json
 import asyncio
+import time
 from typing import Dict, Optional, List, Any
 from datetime import datetime
+
+# Import the logger
+try:
+    from ..Core.gpt5_logger import (
+        get_logger, log_plan_mode, log_gpt5_call, 
+        log_gpt5_response, log_merge, log_fallback
+    )
+    LOGGING_AVAILABLE = True
+except ImportError:
+    LOGGING_AVAILABLE = False
+    print("Warning: GPT-5 logger not available")
 
 
 class PlanModeHook:
@@ -23,16 +35,39 @@ class PlanModeHook:
         self.verbosity = os.getenv("GPT5_VERBOSITY", "medium")
         self.client = None
         
+        # Initialize logger if available
+        if LOGGING_AVAILABLE:
+            self.logger = get_logger()
+            self.logger.info("🚀 Initializing Plan Mode Hook for GPT-5 Integration")
+            self.logger.info(f"Model: {self.model}, Verbosity: {self.verbosity}")
+        else:
+            self.logger = None
+        
         if self.enabled and self.api_key:
             try:
                 from openai import OpenAI
                 self.client = OpenAI(api_key=self.api_key)
+                if self.logger:
+                    self.logger.success("✅ OpenAI client initialized successfully")
+                    self.logger.info(f"API Key: ...{self.api_key[-8:]}")
             except ImportError:
-                print("Warning: OpenAI package not installed. Run: pip install openai")
+                error_msg = "OpenAI package not installed. Run: pip install openai"
+                print(f"Warning: {error_msg}")
+                if self.logger:
+                    self.logger.error(error_msg)
                 self.enabled = False
             except Exception as e:
-                print(f"Warning: Could not initialize OpenAI client: {e}")
+                error_msg = f"Could not initialize OpenAI client: {e}"
+                print(f"Warning: {error_msg}")
+                if self.logger:
+                    self.logger.error(error_msg, e)
                 self.enabled = False
+        else:
+            if self.logger:
+                if not self.enabled:
+                    self.logger.warning("Dual planning is disabled")
+                if not self.api_key:
+                    self.logger.warning("No OpenAI API key found")
     
     def on_plan_mode_enter(self, context: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -45,7 +80,15 @@ class PlanModeHook:
         Returns:
             Enhanced context with GPT-5 insights merged
         """
+        # Log plan mode detection
+        if self.logger and LOGGING_AVAILABLE:
+            log_plan_mode(context)
+            self.logger.log_with_banner("🎯 PLAN MODE ACTIVATED - GPT-5 ENHANCEMENT STARTING 🎯")
+        
         if not self.enabled or not self.client:
+            if self.logger:
+                reason = "Dual planning disabled" if not self.enabled else "No OpenAI client"
+                log_fallback(reason)
             return context
         
         try:
@@ -114,6 +157,14 @@ Project Context:
 
 Please provide enhanced planning insights, alternative approaches, and critical considerations."""
             
+            # Log API call
+            if self.logger and LOGGING_AVAILABLE:
+                log_gpt5_call(self.model, "planning_insights")
+                self.logger.info(f"Request length: {len(user_prompt)} characters")
+            
+            # Track timing
+            start_time = time.time()
+            
             # Call GPT-5 API
             response = self.client.chat.completions.create(
                 model=self.model,
@@ -125,8 +176,22 @@ Please provide enhanced planning insights, alternative approaches, and critical 
                 max_tokens=4000
             )
             
+            # Calculate response time
+            response_time = time.time() - start_time
+            
             # Parse and structure the response
             gpt5_content = response.choices[0].message.content
+            
+            # Log successful response
+            if self.logger and LOGGING_AVAILABLE:
+                tokens_used = {
+                    'input': response.usage.prompt_tokens,
+                    'output': response.usage.completion_tokens,
+                    'total': response.usage.total_tokens
+                }
+                log_gpt5_response(True, response_time, tokens_used)
+                self.logger.success(f"✨ GPT-5 responded in {response_time:.2f}s")
+                self.logger.info(f"Response length: {len(gpt5_content)} characters")
             
             return {
                 'raw_insights': gpt5_content,
@@ -140,6 +205,12 @@ Please provide enhanced planning insights, alternative approaches, and critical 
             }
             
         except Exception as e:
+            # Log error
+            if self.logger and LOGGING_AVAILABLE:
+                log_gpt5_response(False, 0, {})
+                self.logger.error(f"GPT-5 API call failed: {str(e)}", e)
+                log_fallback(f"GPT-5 API error: {str(e)}")
+            
             return {
                 'error': str(e),
                 'fallback': True
@@ -201,23 +272,34 @@ Please provide enhanced planning insights, alternative approaches, and critical 
         Returns:
             Merged and enhanced context
         """
+        if self.logger and LOGGING_AVAILABLE:
+            self.logger.info("🔀 Starting plan merge operation...")
+        
         enhanced_context = claude_context.copy()
         
         # Add GPT-5 insights as a separate section
         enhanced_context['gpt5_enhancement'] = gpt5_insights
         
         # If both models agree on certain points, highlight them
+        consensus_points = []
         if 'structured_insights' in gpt5_insights:
-            enhanced_context['consensus_points'] = self.find_consensus(
+            consensus_points = self.find_consensus(
                 claude_context.get('plan_points', []),
                 gpt5_insights['structured_insights']
             )
+            enhanced_context['consensus_points'] = consensus_points
         
         # Create a combined action plan
         enhanced_context['combined_plan'] = self.create_combined_plan(
             claude_context,
             gpt5_insights
         )
+        
+        # Log merge results
+        if self.logger and LOGGING_AVAILABLE:
+            confidence = self.calculate_confidence(claude_context, gpt5_insights)
+            log_merge("dual_model", len(consensus_points), confidence)
+            self.logger.success(f"✅ Plan merge completed with {len(consensus_points)} consensus points")
         
         return enhanced_context
     

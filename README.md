@@ -2,7 +2,7 @@
 [![Website Preview](https://img.shields.io/badge/Visit-Website-blue?logo=google-chrome)](https://superclaude-org.github.io/SuperClaude_Website/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://img.shields.io/pypi/v/SuperClaude.svg)](https://pypi.org/project/SuperClaude/)
-[![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://github.com/SuperClaude-Org/SuperClaude_Framework)
+[![Version](https://img.shields.io/badge/version-3.1.0--gpt5-blue.svg)](https://github.com/SuperClaude-Org/SuperClaude_Framework)
 [![GitHub issues](https://img.shields.io/github/issues/SuperClaude-Org/SuperClaude_Framework)](https://github.com/SuperClaude-Org/SuperClaude_Framework/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SuperClaude-Org/SuperClaude_Framework/blob/master/CONTRIBUTING.md)
 [![Contributors](https://img.shields.io/github/contributors/SuperClaude-Org/SuperClaude_Framework)](https://github.com/SuperClaude-Org/SuperClaude_Framework/graphs/contributors)
@@ -18,6 +18,7 @@ SuperClaude tries to make Claude Code more helpful for development work by addin
 - 🛠️ **16 specialized commands** for common dev tasks (some work better than others!)
 - 🎭 **Smart personas** that usually pick the right expert for different domains 
 - 🔧 **MCP server integration** for docs, UI components, and browser automation
+- 🤖 **GPT-5 Enhanced Planning** (NEW!) - Dual-model planning combining Claude + GPT-5
 - 📋 **Task management** that tries to keep track of progress
 - ⚡ **Token optimization** to help with longer conversations
 
@@ -30,6 +31,8 @@ This is what we've been building to make development workflows smoother. Still r
 - Core framework with 9 documentation files 
 - 16 slash commands for various development tasks
 - MCP server integration (Deepwiki, Sequential, Magic, Browserbase)
+- GPT-5 integration for enhanced planning (when API key is available)
+- Comprehensive logging system with visual indicators
 - Unified CLI installer for easy setup
 
 ⚠️ **Known Issues:**
@@ -68,6 +71,36 @@ External tools that connect when useful:
 - **Browserbase** - Cloud browser automation and testing
 
 *(These work pretty well when they connect properly! 🤞)*
+
+### GPT-5 Enhanced Planning 🤖 (NEW!)
+Dual-model planning that combines Claude's understanding with GPT-5's advanced capabilities:
+
+**How it works:**
+- **Automatic Activation** - Detects when you enter plan mode and enhances it
+- **Dual Analysis** - Both models analyze your request in parallel
+- **Intelligent Merging** - Combines insights, identifies consensus points
+- **Visual Logging** - Color-coded console output shows exactly what's happening
+- **Cost Tracking** - Real-time monitoring of API usage and costs
+
+**Key Features:**
+- 🎯 **5 Planning Strategies**: claude_only, gpt5_only, dual_model, consensus, complementary
+- 📊 **Comprehensive Logging**: Plan mode detection, API calls, merges, fallbacks
+- 💰 **Cost Management**: Track tokens and costs ($1.25/M input, $10/M output)
+- ⚡ **Graceful Fallback**: Continues with Claude if GPT-5 unavailable
+
+**Setup (Optional):**
+```bash
+# Set your OpenAI API key
+export OPENAI_API_KEY=sk-your-api-key
+
+# Enable dual planning
+export ENABLE_DUAL_PLANNING=true
+
+# Test the integration
+python3 test_gpt5_logging.py
+```
+
+*(Works great when you have an API key! Falls back gracefully when you don't.)*
 
 ## ⚠️ Upgrading from v2? Important!
 
@@ -258,6 +291,16 @@ We're hoping to work on these things for the next version:
 After installation, you can customize SuperClaude by editing:
 - `~/.claude/settings.json` - Main configuration
 - `~/.claude/*.md` - Framework behavior files
+- `config/openai_settings.json` - GPT-5 model settings and strategies
+
+**GPT-5 Environment Variables:**
+```bash
+OPENAI_API_KEY=sk-your-key       # Your OpenAI API key
+ENABLE_DUAL_PLANNING=true        # Enable GPT-5 planning
+GPT5_MODEL=gpt-5                 # Model variant (gpt-5, gpt-5-mini, gpt-5-nano)
+GPT5_VERBOSITY=medium            # Response detail level
+GPT5_LOGGING=true                # Enable visual logging
+```
 
 Most users probably won't need to change anything - it usually works okay out of the box. 🎛️
 
@@ -290,10 +333,19 @@ SuperClaude/
 ├── setup.py               # pypi setup file
 ├── SuperClaude/           # Framework files  
 │   ├── Core/              # Behavior documentation (COMMANDS.md, FLAGS.md, etc.)
+│   │   ├── openai_integration.py  # GPT-5 API wrapper
+│   │   ├── dual_planner.py        # Dual-model planning orchestrator
+│   │   └── gpt5_logger.py         # Visual logging system
 │   ├── Commands/          # 16 slash command definitions
+│   ├── Hooks/             # Plan mode interception
+│   │   └── plan_mode_hook.py      # GPT-5 plan mode enhancement
 │   └── Settings/          # Configuration files
+├── config/                # Configuration
+│   └── openai_settings.json       # GPT-5 model settings
 ├── setup/                 # Installation system
-└── profiles/              # Installation profiles (quick, minimal, developer)
+├── profiles/              # Installation profiles (quick, minimal, developer)
+├── test_gpt5_logging.py   # GPT-5 integration test script
+└── view_gpt5_logs.py      # Interactive log viewer utility
 ```
 
 ## Architecture Notes 🏗️
@@ -306,16 +358,42 @@ The v3 architecture focuses on:
 
 We learned a lot from v2 and tried to address the main pain points.
 
+## Verifying GPT-5 Integration 🔍
+
+**Quick Check:**
+```bash
+# Run the test script
+python3 test_gpt5_logging.py
+
+# View logs interactively
+python3 view_gpt5_logs.py
+```
+
+**What to Look For:**
+- 🎯 Blue "PLAN MODE DETECTED!" messages
+- 🤖 Magenta "GPT-5 API CALL" indicators
+- ✅ Green "GPT-5 Response Received" confirmations
+- 📊 Session statistics showing API calls and costs
+
 ## FAQ 🙋
 
 **Q: Why was the hooks system removed?**  
-A: It was getting complex and buggy. We're redesigning it properly for v4.
+A: It was getting complex and buggy. We're redesigning it properly for v4. (Note: We brought back a minimal hooks system for GPT-5 integration!)
 
 **Q: Does this work with other AI assistants?**  
 A: Currently Claude Code only, but v4 will have broader compatibility.
 
 **Q: Is this stable enough for daily use?**  
 A: The basic stuff works pretty well, but definitely expect some rough edges since it's a fresh release. Probably fine for experimenting! 🧪
+
+**Q: How much does GPT-5 integration cost?**  
+A: GPT-5 pricing is $1.25/million input tokens and $10/million output tokens. The logging system tracks your usage in real-time. You can use cheaper variants (gpt-5-mini, gpt-5-nano) for cost savings.
+
+**Q: What happens if I don't have an OpenAI API key?**  
+A: SuperClaude gracefully falls back to Claude-only planning. You get all the other features, just without the dual-model enhancement.
+
+**Q: Can I see what GPT-5 is doing?**  
+A: Yes! The comprehensive logging system shows every API call, response, merge operation, and fallback with color-coded console output.
 
 ## SuperClaude Contributors
 

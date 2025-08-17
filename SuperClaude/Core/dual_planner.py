@@ -20,6 +20,13 @@ except ImportError:
     GPT5Model = None
     VerbosityLevel = None
 
+# Import the logger
+try:
+    from .gpt5_logger import get_logger, log_merge, log_fallback
+    LOGGING_AVAILABLE = True
+except ImportError:
+    LOGGING_AVAILABLE = False
+
 
 @dataclass
 class PlanningContext:
@@ -64,6 +71,14 @@ class DualPlanner:
             os.getenv("PLANNING_STRATEGY", "dual_model")
         )
         
+        # Initialize logger if available
+        self.logger = None
+        if LOGGING_AVAILABLE:
+            self.logger = get_logger()
+            self.logger.info("🎨 Initializing Dual Planner")
+            self.logger.info(f"Strategy: {self.strategy.value}")
+            self.logger.info(f"Enabled: {self.enabled}")
+        
         # Initialize GPT-5 integration if available
         self.gpt5 = None
         if GPT5Integration and self.enabled:
@@ -72,8 +87,12 @@ class DualPlanner:
                     api_key=os.getenv("OPENAI_API_KEY"),
                     model=os.getenv("GPT5_MODEL", "gpt-5")
                 )
+                if self.logger:
+                    self.logger.success("✅ GPT-5 Integration initialized in Dual Planner")
             except Exception as e:
                 print(f"Warning: Could not initialize GPT-5 integration: {e}")
+                if self.logger:
+                    self.logger.error(f"GPT-5 integration failed: {e}")
                 self.enabled = False
         
         # Planning metrics
@@ -113,9 +132,20 @@ class DualPlanner:
         """
         self.metrics['total_plans'] += 1
         
+        if self.logger:
+            self.logger.log_with_banner(f"🎯 DUAL PLANNER ACTIVATED - Strategy: {self.strategy.value}")
+            self.logger.info(f"Request: {context.user_request[:100]}...")
+        
         # Check if dual planning is enabled
         if not self.enabled or not self.gpt5:
+            if self.logger:
+                reason = "Dual planning disabled" if not self.enabled else "No GPT-5 client"
+                log_fallback(reason)
             return await self._claude_only_plan(context)
+        
+        # Log strategy selection
+        if self.logger:
+            self.logger.info(f"📍 Executing strategy: {self.strategy.value}")
         
         # Execute based on strategy
         if self.strategy == PlanningStrategy.CLAUDE_ONLY:
